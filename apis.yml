@@ -9,11 +9,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Payment Processing
+  - AWS
   - Cryptography
   - Financial Services
+  - Payment Processing
   - PCI
-  - AWS
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -29,9 +29,9 @@ apis:
     humanURL: https://aws.amazon.com/payment-cryptography/
     baseURL: https://controlplane.payment-cryptography.amazonaws.com
     tags:
-      - Payment Processing
       - Cryptography
       - Financial Services
+      - Payment Processing
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
