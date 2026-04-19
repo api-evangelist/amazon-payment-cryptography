@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-list-aliases-output-schema.json",
+  "title": "ListAliasesOutput",
+  "description": "ListAliasesOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Aliases": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Aliases"
+        },
+        {
+          "description": "The list of aliases. Each alias describes the <code>KeyArn</code> contained within."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results, or an empty or null value if there are no more results."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Aliases"
+  ]
+}

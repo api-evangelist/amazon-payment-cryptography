@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-stop-key-usage-output-structure.json",
+  "name": "StopKeyUsageOutput",
+  "description": "StopKeyUsageOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Key"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Key"
+  ]
+}

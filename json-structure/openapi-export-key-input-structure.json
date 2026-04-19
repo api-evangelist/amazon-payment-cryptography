@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-export-key-input-structure.json",
+  "name": "ExportKeyInput",
+  "description": "ExportKeyInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "ExportKeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the key under export from Amazon Web Services Payment Cryptography."
+        }
+      ]
+    },
+    "KeyMaterial": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExportKeyMaterial"
+        },
+        {
+          "description": "The key block format type, for example, TR-34 or TR-31, to use during key material export."
+        }
+      ]
+    }
+  },
+  "required": [
+    "ExportKeyIdentifier",
+    "KeyMaterial"
+  ]
+}

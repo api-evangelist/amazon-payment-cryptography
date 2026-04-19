@@ -1,0 +1,400 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Payment Cryptography Control Plane
+  description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export,
+    share, manage,
+  tags:
+  - Amazon Payment Cryptography
+  - AWS
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_SIGV4_AUTH: AWS_SIGV4_AUTH
+capability:
+  consumes:
+  - type: http
+    namespace: openapi.yml
+    baseUri: http://controlplane.payment-cryptography.{region}.amazonaws.com
+    description: '<p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys '
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{AWS_SIGV4_AUTH}}'
+      placement: header
+    resources:
+    - name: default
+      path: /default
+      description: Default operations for Payment Cryptography Control Plane
+      operations:
+      - name: CreateAlias
+        method: POST
+        description: CreateAlias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: CreateKey
+        method: POST
+        description: CreateKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: DeleteAlias
+        method: POST
+        description: DeleteAlias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: DeleteKey
+        method: POST
+        description: DeleteKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: ExportKey
+        method: POST
+        description: ExportKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: GetAlias
+        method: POST
+        description: GetAlias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: GetKey
+        method: POST
+        description: GetKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: GetParametersForExport
+        method: POST
+        description: GetParametersForExport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: GetParametersForImport
+        method: POST
+        description: GetParametersForImport
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: GetPublicKeyCertificate
+        method: POST
+        description: GetPublicKeyCertificate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: ImportKey
+        method: POST
+        description: ImportKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: ListAliases
+        method: POST
+        description: ListAliases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: ListKeys
+        method: POST
+        description: ListKeys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: ListTagsForResource
+        method: POST
+        description: ListTagsForResource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          required: false
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          required: false
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: RestoreKey
+        method: POST
+        description: RestoreKey
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: StartKeyUsage
+        method: POST
+        description: StartKeyUsage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: StopKeyUsage
+        method: POST
+        description: StopKeyUsage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: TagResource
+        method: POST
+        description: TagResource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: UntagResource
+        method: POST
+        description: UntagResource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}
+      - name: UpdateAlias
+        method: POST
+        description: UpdateAlias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+          description: X-Amz-Target
+        body:
+          type: json
+          data: {}

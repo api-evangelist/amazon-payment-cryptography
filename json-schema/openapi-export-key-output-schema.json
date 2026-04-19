@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-export-key-output-schema.json",
+  "title": "ExportKeyOutput",
+  "description": "ExportKeyOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "WrappedKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WrappedKey"
+        },
+        {
+          "description": "The key material under export as a TR-34 or TR-31 wrapped key block."
+        }
+      ]
+    }
+  }
+}

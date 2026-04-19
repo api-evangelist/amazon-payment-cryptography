@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-check-value-algorithm-schema.json",
+  "title": "KeyCheckValueAlgorithm",
+  "description": "KeyCheckValueAlgorithm schema from Amazon Payment Cryptography",
+  "type": "string",
+  "enum": [
+    "CMAC",
+    "ANSI_X9_24"
+  ]
+}

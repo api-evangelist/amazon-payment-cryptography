@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-create-alias-output-schema.json",
+  "title": "CreateAliasOutput",
+  "description": "CreateAliasOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Alias": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Alias"
+        },
+        {
+          "description": "The alias for the key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Alias"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-get-parameters-for-import-input-schema.json",
+  "title": "GetParametersForImportInput",
+  "description": "GetParametersForImportInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "KeyMaterialType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyMaterialType"
+        },
+        {
+          "description": "The key block format type such as TR-34 or TR-31 to use during key material import. Import token is only required for TR-34 key import <code>TR34_KEY_BLOCK</code>. Import token is not required for TR-31 key import."
+        }
+      ]
+    },
+    "WrappingKeyAlgorithm": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyAlgorithm"
+        },
+        {
+          "description": "The wrapping key algorithm to generate a wrapping key certificate. This certificate wraps the key under import within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only wrapping key algorithm allowed."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyMaterialType",
+    "WrappingKeyAlgorithm"
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "CreateTimestamp": "example-string",
+  "DeletePendingTimestamp": "example-string",
+  "DeleteTimestamp": "example-string",
+  "Enabled": "example-string",
+  "Exportable": "example-string",
+  "KeyArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "KeyAttributes": "example-string",
+  "KeyCheckValue": "example-string",
+  "KeyCheckValueAlgorithm": "example-string",
+  "KeyOrigin": "example-string",
+  "KeyState": "example-string",
+  "UsageStartTimestamp": "example-string",
+  "UsageStopTimestamp": "example-string"
+}

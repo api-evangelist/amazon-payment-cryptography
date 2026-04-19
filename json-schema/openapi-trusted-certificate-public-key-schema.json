@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-trusted-certificate-public-key-schema.json",
+  "title": "TrustedCertificatePublicKey",
+  "description": "Parameter information for trusted public key certificate import.",
+  "type": "object",
+  "properties": {
+    "CertificateAuthorityPublicKeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the root public key certificate or certificate chain that signs the trusted public key certificate import."
+        }
+      ]
+    },
+    "KeyAttributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyAttributes"
+        },
+        {
+          "description": "The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after a trusted public key is imported."
+        }
+      ]
+    },
+    "PublicKeyCertificate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateType"
+        },
+        {
+          "description": "Parameter information for trusted public key certificate import."
+        }
+      ]
+    }
+  },
+  "required": [
+    "CertificateAuthorityPublicKeyIdentifier",
+    "KeyAttributes",
+    "PublicKeyCertificate"
+  ]
+}

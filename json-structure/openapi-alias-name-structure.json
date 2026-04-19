@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-alias-name-structure.json",
+  "name": "AliasName",
+  "description": "AliasName schema from Amazon Payment Cryptography",
+  "type": "string",
+  "pattern": "^alias/[a-zA-Z0-9/_-]+$"
+}

@@ -1,0 +1,6 @@
+{
+  "KeyAlgorithm": "example-string",
+  "KeyClass": "example-string",
+  "KeyModesOfUse": "example-string",
+  "KeyUsage": "example-string"
+}

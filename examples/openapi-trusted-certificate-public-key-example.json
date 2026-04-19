@@ -1,0 +1,5 @@
+{
+  "CertificateAuthorityPublicKeyIdentifier": "resource-abc123",
+  "KeyAttributes": "example-string",
+  "PublicKeyCertificate": "example-string"
+}

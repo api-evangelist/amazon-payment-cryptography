@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-list-keys-output-structure.json",
+  "name": "ListKeysOutput",
+  "description": "ListKeysOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Keys": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeySummaryList"
+        },
+        {
+          "description": "The list of keys created within the caller's Amazon Web Services account and Amazon Web Services Region."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results, or an empty or null value if there are no more results."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Keys"
+  ]
+}

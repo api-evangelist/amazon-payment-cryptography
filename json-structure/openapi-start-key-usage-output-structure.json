@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-start-key-usage-output-structure.json",
+  "name": "StartKeyUsageOutput",
+  "description": "StartKeyUsageOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Key"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key activated for use."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Key"
+  ]
+}

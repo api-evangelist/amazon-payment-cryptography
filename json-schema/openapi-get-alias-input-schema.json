@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-get-alias-input-schema.json",
+  "title": "GetAliasInput",
+  "description": "GetAliasInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "AliasName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AliasName"
+        },
+        {
+          "description": "The alias of the Amazon Web Services Payment Cryptography key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AliasName"
+  ]
+}

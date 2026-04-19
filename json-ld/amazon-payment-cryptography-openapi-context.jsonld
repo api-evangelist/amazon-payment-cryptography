@@ -1,0 +1,344 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "payment": "https://payment.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "AccessDeniedException": "payment:AccessDeniedException",
+    "Alias": {
+      "@id": "payment:Alias",
+      "@type": "xsd:string"
+    },
+    "AliasName": {
+      "@id": "payment:AliasName",
+      "@type": "xsd:string"
+    },
+    "Aliases": {
+      "@id": "payment:Aliases",
+      "@type": "xsd:string"
+    },
+    "Boolean": "payment:Boolean",
+    "CertificateType": "payment:CertificateType",
+    "ConflictException": "payment:ConflictException",
+    "CreateAliasInput": "payment:CreateAliasInput",
+    "CreateAliasOutput": "payment:CreateAliasOutput",
+    "CreateKeyInput": "payment:CreateKeyInput",
+    "CreateKeyOutput": "payment:CreateKeyOutput",
+    "DeleteAliasInput": "payment:DeleteAliasInput",
+    "DeleteAliasOutput": "payment:DeleteAliasOutput",
+    "DeleteKeyInput": "payment:DeleteKeyInput",
+    "DeleteKeyInputDeleteKeyInDaysInteger": "payment:DeleteKeyInputDeleteKeyInDaysInteger",
+    "DeleteKeyOutput": "payment:DeleteKeyOutput",
+    "ExportKeyInput": "payment:ExportKeyInput",
+    "ExportKeyMaterial": "payment:ExportKeyMaterial",
+    "ExportKeyOutput": "payment:ExportKeyOutput",
+    "ExportTokenId": "payment:ExportTokenId",
+    "ExportTr31KeyBlock": "payment:ExportTr31KeyBlock",
+    "ExportTr34KeyBlock": "payment:ExportTr34KeyBlock",
+    "GetAliasInput": "payment:GetAliasInput",
+    "GetAliasOutput": "payment:GetAliasOutput",
+    "GetKeyInput": "payment:GetKeyInput",
+    "GetKeyOutput": "payment:GetKeyOutput",
+    "GetParametersForExportInput": "payment:GetParametersForExportInput",
+    "GetParametersForExportOutput": "payment:GetParametersForExportOutput",
+    "GetParametersForImportInput": "payment:GetParametersForImportInput",
+    "GetParametersForImportOutput": "payment:GetParametersForImportOutput",
+    "GetPublicKeyCertificateInput": "payment:GetPublicKeyCertificateInput",
+    "GetPublicKeyCertificateOutput": "payment:GetPublicKeyCertificateOutput",
+    "HexLength16": "payment:HexLength16",
+    "ImportKeyInput": "payment:ImportKeyInput",
+    "ImportKeyMaterial": "payment:ImportKeyMaterial",
+    "ImportKeyOutput": "payment:ImportKeyOutput",
+    "ImportTokenId": "payment:ImportTokenId",
+    "ImportTr31KeyBlock": "payment:ImportTr31KeyBlock",
+    "ImportTr34KeyBlock": "payment:ImportTr34KeyBlock",
+    "InternalServerException": "payment:InternalServerException",
+    "Key": {
+      "@id": "payment:Key",
+      "@type": "xsd:string"
+    },
+    "KeyAlgorithm": {
+      "@id": "payment:KeyAlgorithm",
+      "@type": "xsd:string"
+    },
+    "KeyArn": {
+      "@id": "payment:KeyArn",
+      "@type": "xsd:string"
+    },
+    "KeyArnOrKeyAliasType": "payment:KeyArnOrKeyAliasType",
+    "KeyAttributes": {
+      "@id": "payment:KeyAttributes",
+      "@type": "xsd:string"
+    },
+    "KeyCheckValue": {
+      "@id": "payment:KeyCheckValue",
+      "@type": "xsd:string"
+    },
+    "KeyCheckValueAlgorithm": {
+      "@id": "payment:KeyCheckValueAlgorithm",
+      "@type": "xsd:string"
+    },
+    "KeyClass": {
+      "@id": "payment:KeyClass",
+      "@type": "xsd:string"
+    },
+    "KeyMaterial": {
+      "@id": "payment:KeyMaterial",
+      "@type": "xsd:string"
+    },
+    "KeyMaterialType": {
+      "@id": "payment:KeyMaterialType",
+      "@type": "xsd:string"
+    },
+    "KeyModesOfUse": {
+      "@id": "payment:KeyModesOfUse",
+      "@type": "xsd:string"
+    },
+    "KeyOrigin": {
+      "@id": "payment:KeyOrigin",
+      "@type": "xsd:string"
+    },
+    "KeyState": {
+      "@id": "payment:KeyState",
+      "@type": "xsd:string"
+    },
+    "KeySummary": "payment:KeySummary",
+    "KeySummaryList": "payment:KeySummaryList",
+    "KeyUsage": {
+      "@id": "payment:KeyUsage",
+      "@type": "xsd:string"
+    },
+    "ListAliasesInput": "payment:ListAliasesInput",
+    "ListAliasesOutput": "payment:ListAliasesOutput",
+    "ListKeysInput": "payment:ListKeysInput",
+    "ListKeysOutput": "payment:ListKeysOutput",
+    "ListTagsForResourceInput": "payment:ListTagsForResourceInput",
+    "ListTagsForResourceOutput": "payment:ListTagsForResourceOutput",
+    "MaxResults": {
+      "@id": "payment:MaxResults",
+      "@type": "xsd:string"
+    },
+    "NextToken": {
+      "@id": "payment:NextToken",
+      "@type": "xsd:string"
+    },
+    "PrimitiveBoolean": "payment:PrimitiveBoolean",
+    "ResourceArn": {
+      "@id": "payment:ResourceArn",
+      "@type": "xsd:string"
+    },
+    "ResourceNotFoundException": "payment:ResourceNotFoundException",
+    "RestoreKeyInput": "payment:RestoreKeyInput",
+    "RestoreKeyOutput": "payment:RestoreKeyOutput",
+    "RootCertificatePublicKey": {
+      "@id": "payment:RootCertificatePublicKey",
+      "@type": "xsd:string"
+    },
+    "ServiceQuotaExceededException": "payment:ServiceQuotaExceededException",
+    "ServiceUnavailableException": "payment:ServiceUnavailableException",
+    "StartKeyUsageInput": "payment:StartKeyUsageInput",
+    "StartKeyUsageOutput": "payment:StartKeyUsageOutput",
+    "StopKeyUsageInput": "payment:StopKeyUsageInput",
+    "StopKeyUsageOutput": "payment:StopKeyUsageOutput",
+    "Tag": "payment:Tag",
+    "TagKey": "payment:TagKey",
+    "TagKeys": {
+      "@id": "payment:TagKeys",
+      "@type": "xsd:string"
+    },
+    "TagResourceInput": "payment:TagResourceInput",
+    "TagResourceOutput": "payment:TagResourceOutput",
+    "TagValue": "payment:TagValue",
+    "Tags": {
+      "@id": "payment:Tags",
+      "@type": "xsd:string"
+    },
+    "ThrottlingException": "payment:ThrottlingException",
+    "Timestamp": "payment:Timestamp",
+    "Tr31WrappedKeyBlock": "payment:Tr31WrappedKeyBlock",
+    "Tr34KeyBlockFormat": "payment:Tr34KeyBlockFormat",
+    "Tr34WrappedKeyBlock": "payment:Tr34WrappedKeyBlock",
+    "TrustedCertificatePublicKey": {
+      "@id": "payment:TrustedCertificatePublicKey",
+      "@type": "xsd:string"
+    },
+    "UntagResourceInput": "payment:UntagResourceInput",
+    "UntagResourceOutput": "payment:UntagResourceOutput",
+    "UpdateAliasInput": "payment:UpdateAliasInput",
+    "UpdateAliasOutput": "payment:UpdateAliasOutput",
+    "ValidationException": "payment:ValidationException",
+    "WrappedKey": {
+      "@id": "payment:WrappedKey",
+      "@type": "xsd:string"
+    },
+    "WrappedKeyMaterialFormat": {
+      "@id": "payment:WrappedKeyMaterialFormat",
+      "@type": "xsd:string"
+    },
+    "CertificateAuthorityPublicKeyIdentifier": {
+      "@id": "payment:CertificateAuthorityPublicKeyIdentifier",
+      "@type": "xsd:string"
+    },
+    "CreateTimestamp": {
+      "@id": "payment:CreateTimestamp",
+      "@type": "xsd:string"
+    },
+    "Decrypt": {
+      "@id": "payment:Decrypt",
+      "@type": "xsd:string"
+    },
+    "DeleteKeyInDays": {
+      "@id": "payment:DeleteKeyInDays",
+      "@type": "xsd:string"
+    },
+    "DeletePendingTimestamp": {
+      "@id": "payment:DeletePendingTimestamp",
+      "@type": "xsd:string"
+    },
+    "DeleteTimestamp": {
+      "@id": "payment:DeleteTimestamp",
+      "@type": "xsd:string"
+    },
+    "DeriveKey": {
+      "@id": "payment:DeriveKey",
+      "@type": "xsd:string"
+    },
+    "Enabled": {
+      "@id": "payment:Enabled",
+      "@type": "xsd:string"
+    },
+    "Encrypt": {
+      "@id": "payment:Encrypt",
+      "@type": "xsd:string"
+    },
+    "ExportKeyIdentifier": {
+      "@id": "payment:ExportKeyIdentifier",
+      "@type": "xsd:string"
+    },
+    "ExportToken": {
+      "@id": "payment:ExportToken",
+      "@type": "xsd:string"
+    },
+    "Exportable": {
+      "@id": "payment:Exportable",
+      "@type": "xsd:string"
+    },
+    "Generate": {
+      "@id": "payment:Generate",
+      "@type": "xsd:string"
+    },
+    "ImportToken": {
+      "@id": "payment:ImportToken",
+      "@type": "xsd:string"
+    },
+    "KeyBlockFormat": {
+      "@id": "payment:KeyBlockFormat",
+      "@type": "xsd:string"
+    },
+    "KeyCertificate": {
+      "@id": "payment:KeyCertificate",
+      "@type": "xsd:string"
+    },
+    "KeyCertificateChain": {
+      "@id": "payment:KeyCertificateChain",
+      "@type": "xsd:string"
+    },
+    "KeyIdentifier": {
+      "@id": "payment:KeyIdentifier",
+      "@type": "xsd:string"
+    },
+    "Keys": {
+      "@id": "payment:Keys",
+      "@type": "xsd:string"
+    },
+    "NoRestrictions": {
+      "@id": "payment:NoRestrictions",
+      "@type": "xsd:string"
+    },
+    "ParametersValidUntilTimestamp": {
+      "@id": "payment:ParametersValidUntilTimestamp",
+      "@type": "xsd:string"
+    },
+    "PublicKeyCertificate": {
+      "@id": "payment:PublicKeyCertificate",
+      "@type": "xsd:string"
+    },
+    "RandomNonce": {
+      "@id": "payment:RandomNonce",
+      "@type": "xsd:string"
+    },
+    "Sign": {
+      "@id": "payment:Sign",
+      "@type": "xsd:string"
+    },
+    "SigningKeyAlgorithm": {
+      "@id": "payment:SigningKeyAlgorithm",
+      "@type": "xsd:string"
+    },
+    "SigningKeyCertificate": {
+      "@id": "payment:SigningKeyCertificate",
+      "@type": "xsd:string"
+    },
+    "SigningKeyCertificateChain": {
+      "@id": "payment:SigningKeyCertificateChain",
+      "@type": "xsd:string"
+    },
+    "Tr31KeyBlock": {
+      "@id": "payment:Tr31KeyBlock",
+      "@type": "xsd:string"
+    },
+    "Tr34KeyBlock": {
+      "@id": "payment:Tr34KeyBlock",
+      "@type": "xsd:string"
+    },
+    "Unwrap": {
+      "@id": "payment:Unwrap",
+      "@type": "xsd:string"
+    },
+    "UsageStartTimestamp": {
+      "@id": "payment:UsageStartTimestamp",
+      "@type": "xsd:string"
+    },
+    "UsageStopTimestamp": {
+      "@id": "payment:UsageStopTimestamp",
+      "@type": "xsd:string"
+    },
+    "Value": {
+      "@id": "payment:Value",
+      "@type": "xsd:string"
+    },
+    "Verify": {
+      "@id": "payment:Verify",
+      "@type": "xsd:string"
+    },
+    "Wrap": {
+      "@id": "payment:Wrap",
+      "@type": "xsd:string"
+    },
+    "WrappedKeyBlock": {
+      "@id": "payment:WrappedKeyBlock",
+      "@type": "xsd:string"
+    },
+    "WrappingKeyAlgorithm": {
+      "@id": "payment:WrappingKeyAlgorithm",
+      "@type": "xsd:string"
+    },
+    "WrappingKeyArn": {
+      "@id": "payment:WrappingKeyArn",
+      "@type": "xsd:string"
+    },
+    "WrappingKeyCertificate": {
+      "@id": "payment:WrappingKeyCertificate",
+      "@type": "xsd:string"
+    },
+    "WrappingKeyCertificateChain": {
+      "@id": "payment:WrappingKeyCertificateChain",
+      "@type": "xsd:string"
+    },
+    "WrappingKeyIdentifier": {
+      "@id": "payment:WrappingKeyIdentifier",
+      "@type": "xsd:string"
+    }
+  }
+}

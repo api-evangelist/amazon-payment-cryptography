@@ -1,0 +1,8 @@
+{
+  "Enabled": "example-string",
+  "Exportable": "example-string",
+  "KeyArn": "arn:aws:service:us-east-1:123456789012:resource/example",
+  "KeyAttributes": "example-string",
+  "KeyCheckValue": "example-string",
+  "KeyState": "example-string"
+}

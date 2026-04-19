@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-certificate-type-structure.json",
+  "name": "CertificateType",
+  "description": "CertificateType schema from Amazon Payment Cryptography",
+  "type": "string",
+  "format": "password",
+  "pattern": "^[^\\[;\\]<>]+$"
+}

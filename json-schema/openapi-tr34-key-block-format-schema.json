@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-tr34-key-block-format-schema.json",
+  "title": "Tr34KeyBlockFormat",
+  "description": "Tr34KeyBlockFormat schema from Amazon Payment Cryptography",
+  "type": "string",
+  "enum": [
+    "X9_TR34_2012"
+  ]
+}

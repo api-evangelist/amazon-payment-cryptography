@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-summary-schema.json",
+  "title": "KeySummary",
+  "description": "Metadata about an Amazon Web Services Payment Cryptography key.",
+  "type": "object",
+  "properties": {
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Specifies whether the key is enabled. "
+        }
+      ]
+    },
+    "Exportable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Specifies whether the key is exportable. This data is immutable after the key is created."
+        }
+      ]
+    },
+    "KeyArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the key."
+        }
+      ]
+    },
+    "KeyAttributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyAttributes"
+        },
+        {
+          "description": "The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created."
+        }
+      ]
+    },
+    "KeyCheckValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyCheckValue"
+        },
+        {
+          "description": "The key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or \"00\" or \"01\" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram."
+        }
+      ]
+    },
+    "KeyState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyState"
+        },
+        {
+          "description": "The state of an Amazon Web Services Payment Cryptography that is being created or deleted."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Enabled",
+    "Exportable",
+    "KeyArn",
+    "KeyAttributes",
+    "KeyCheckValue",
+    "KeyState"
+  ]
+}

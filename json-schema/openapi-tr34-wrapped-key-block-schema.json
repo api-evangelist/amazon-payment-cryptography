@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-tr34-wrapped-key-block-schema.json",
+  "title": "Tr34WrappedKeyBlock",
+  "description": "Tr34WrappedKeyBlock schema from Amazon Payment Cryptography",
+  "type": "string",
+  "pattern": "^[0-9A-F]+$"
+}

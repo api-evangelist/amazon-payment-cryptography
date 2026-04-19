@@ -1,0 +1,10 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-tags-structure.json",
+  "name": "Tags",
+  "description": "Tags schema from Amazon Payment Cryptography",
+  "type": "array",
+  "items": {
+    "$ref": "#/components/schemas/Tag"
+  }
+}

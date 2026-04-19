@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-delete-key-input-delete-key-in-days-integer-structure.json",
+  "name": "DeleteKeyInputDeleteKeyInDaysInteger",
+  "description": "DeleteKeyInputDeleteKeyInDaysInteger schema from Amazon Payment Cryptography",
+  "type": "int32",
+  "minimum": 3,
+  "maximum": 180
+}

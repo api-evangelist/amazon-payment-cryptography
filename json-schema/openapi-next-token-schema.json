@@ -1,0 +1,7 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-next-token-schema.json",
+  "title": "NextToken",
+  "description": "NextToken schema from Amazon Payment Cryptography",
+  "type": "string"
+}

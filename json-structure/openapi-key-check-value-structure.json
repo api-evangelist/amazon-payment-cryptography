@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-key-check-value-structure.json",
+  "name": "KeyCheckValue",
+  "description": "KeyCheckValue schema from Amazon Payment Cryptography",
+  "type": "string",
+  "pattern": "^[0-9a-fA-F]+$"
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-get-parameters-for-export-input-schema.json",
+  "title": "GetParametersForExportInput",
+  "description": "GetParametersForExportInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "KeyMaterialType": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyMaterialType"
+        },
+        {
+          "description": "The key block format type (for example, TR-34 or TR-31) to use during key material export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>. Export token is not required for TR-31 key export."
+        }
+      ]
+    },
+    "SigningKeyAlgorithm": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyAlgorithm"
+        },
+        {
+          "description": "The signing key algorithm to generate a signing key certificate. This certificate signs the wrapped key under export within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only signing key algorithm allowed."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyMaterialType",
+    "SigningKeyAlgorithm"
+  ]
+}

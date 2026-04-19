@@ -1,0 +1,150 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-schema.json",
+  "title": "Key",
+  "description": "Metadata about an Amazon Web Services Payment Cryptography key.",
+  "type": "object",
+  "properties": {
+    "CreateTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time when the key was created."
+        }
+      ]
+    },
+    "DeletePendingTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time after which Amazon Web Services Payment Cryptography will delete the key. This value is present only when <code>KeyState</code> is <code>DELETE_PENDING</code> and the key is scheduled for deletion."
+        }
+      ]
+    },
+    "DeleteTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time after which Amazon Web Services Payment Cryptography will delete the key. This value is present only when when the <code>KeyState</code> is <code>DELETE_COMPLETE</code> and the Amazon Web Services Payment Cryptography key is deleted."
+        }
+      ]
+    },
+    "Enabled": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Specifies whether the key is enabled. "
+        }
+      ]
+    },
+    "Exportable": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Boolean"
+        },
+        {
+          "description": "Specifies whether the key is exportable. This data is immutable after the key is created."
+        }
+      ]
+    },
+    "KeyArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArn"
+        },
+        {
+          "description": "The Amazon Resource Name (ARN) of the key."
+        }
+      ]
+    },
+    "KeyAttributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyAttributes"
+        },
+        {
+          "description": "The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created."
+        }
+      ]
+    },
+    "KeyCheckValue": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyCheckValue"
+        },
+        {
+          "description": "The key check value (KCV) is used to check if all parties holding a given key have the same key or to detect that a key has changed. Amazon Web Services Payment Cryptography calculates the KCV by using standard algorithms, typically by encrypting 8 or 16 bytes or \"00\" or \"01\" and then truncating the result to the first 3 bytes, or 6 hex digits, of the resulting cryptogram."
+        }
+      ]
+    },
+    "KeyCheckValueAlgorithm": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyCheckValueAlgorithm"
+        },
+        {
+          "description": "The algorithm used for calculating key check value (KCV) for DES and AES keys. For a DES key, Amazon Web Services Payment Cryptography computes the KCV by encrypting 8 bytes, each with value '00', with the key to be checked and retaining the 3 highest order bytes of the encrypted result. For an AES key, Amazon Web Services Payment Cryptography computes the KCV by encrypting 8 bytes, each with value '01', with the key to be checked and retaining the 3 highest order bytes of the encrypted result."
+        }
+      ]
+    },
+    "KeyOrigin": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyOrigin"
+        },
+        {
+          "description": "The source of the key material. For keys created within Amazon Web Services Payment Cryptography, the value is <code>AWS_PAYMENT_CRYPTOGRAPHY</code>. For keys imported into Amazon Web Services Payment Cryptography, the value is <code>EXTERNAL</code>."
+        }
+      ]
+    },
+    "KeyState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyState"
+        },
+        {
+          "description": "The state of key that is being created or deleted."
+        }
+      ]
+    },
+    "UsageStartTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time after which Amazon Web Services Payment Cryptography will start using the key material for cryptographic operations."
+        }
+      ]
+    },
+    "UsageStopTimestamp": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Timestamp"
+        },
+        {
+          "description": "The date and time after which Amazon Web Services Payment Cryptography will stop using the key material for cryptographic operations."
+        }
+      ]
+    }
+  },
+  "required": [
+    "CreateTimestamp",
+    "Enabled",
+    "Exportable",
+    "KeyArn",
+    "KeyAttributes",
+    "KeyCheckValue",
+    "KeyCheckValueAlgorithm",
+    "KeyOrigin",
+    "KeyState"
+  ]
+}

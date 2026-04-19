@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-root-certificate-public-key-schema.json",
+  "title": "RootCertificatePublicKey",
+  "description": "Parameter information for root public key certificate import.",
+  "type": "object",
+  "properties": {
+    "KeyAttributes": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyAttributes"
+        },
+        {
+          "description": "The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the root public key is imported."
+        }
+      ]
+    },
+    "PublicKeyCertificate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/CertificateType"
+        },
+        {
+          "description": "Parameter information for root public key certificate import."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyAttributes",
+    "PublicKeyCertificate"
+  ]
+}

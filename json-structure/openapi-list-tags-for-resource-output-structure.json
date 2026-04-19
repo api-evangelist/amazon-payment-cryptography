@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-list-tags-for-resource-output-structure.json",
+  "name": "ListTagsForResourceOutput",
+  "description": "ListTagsForResourceOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "The token for the next set of results, or an empty or null value if there are no more results."
+        }
+      ]
+    },
+    "Tags": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Tags"
+        },
+        {
+          "description": "The list of tags associated with a <code>ResourceArn</code>. Each tag will list the key-value pair contained within that tag."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Tags"
+  ]
+}

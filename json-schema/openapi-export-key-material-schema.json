@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-export-key-material-schema.json",
+  "title": "ExportKeyMaterial",
+  "description": "Parameter information for key material export from Amazon Web Services Payment Cryptography.",
+  "type": "object",
+  "properties": {
+    "Tr31KeyBlock": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExportTr31KeyBlock"
+        },
+        {
+          "description": "Parameter information for key material export using TR-31 standard."
+        }
+      ]
+    },
+    "Tr34KeyBlock": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ExportTr34KeyBlock"
+        },
+        {
+          "description": "Parameter information for key material export using TR-34 standard."
+        }
+      ]
+    }
+  }
+}

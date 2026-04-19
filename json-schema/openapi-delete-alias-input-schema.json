@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-delete-alias-input-schema.json",
+  "title": "DeleteAliasInput",
+  "description": "DeleteAliasInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "AliasName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AliasName"
+        },
+        {
+          "description": "A friendly name that you can use to refer Amazon Web Services Payment Cryptography key. This value must begin with <code>alias/</code> followed by a name, such as <code>alias/ExampleAlias</code>."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AliasName"
+  ]
+}

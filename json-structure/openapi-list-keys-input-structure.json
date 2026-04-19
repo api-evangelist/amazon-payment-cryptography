@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-list-keys-input-structure.json",
+  "name": "ListKeysInput",
+  "description": "ListKeysInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "KeyState": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyState"
+        },
+        {
+          "description": "The key state of the keys you want to list."
+        }
+      ]
+    },
+    "MaxResults": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/MaxResults"
+        },
+        {
+          "description": "Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer."
+        }
+      ]
+    },
+    "NextToken": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/NextToken"
+        },
+        {
+          "description": "Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received."
+        }
+      ]
+    }
+  }
+}

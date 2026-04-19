@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-wrapped-key-structure.json",
+  "name": "WrappedKey",
+  "description": "Parameter information for generating a wrapped key using TR-31 or TR-34 standard.",
+  "type": "object",
+  "properties": {
+    "KeyMaterial": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyMaterial"
+        },
+        {
+          "description": "Parameter information for generating a wrapped key using TR-31 or TR-34 standard."
+        }
+      ]
+    },
+    "WrappedKeyMaterialFormat": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/WrappedKeyMaterialFormat"
+        },
+        {
+          "description": "The key block format of a wrapped key."
+        }
+      ]
+    },
+    "WrappingKeyArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArn"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the wrapped key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyMaterial",
+    "WrappedKeyMaterialFormat",
+    "WrappingKeyArn"
+  ]
+}

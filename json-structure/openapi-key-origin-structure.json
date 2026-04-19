@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-key-origin-structure.json",
+  "name": "KeyOrigin",
+  "description": "Defines the source of a key",
+  "type": "string",
+  "enum": [
+    "EXTERNAL",
+    "AWS_PAYMENT_CRYPTOGRAPHY"
+  ]
+}

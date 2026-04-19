@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-alias-schema.json",
+  "title": "Alias",
+  "description": "Contains information about an alias.",
+  "type": "object",
+  "properties": {
+    "AliasName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AliasName"
+        },
+        {
+          "description": "<p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>"
+        }
+      ]
+    },
+    "KeyArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArn"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the key associated with the alias."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AliasName"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-start-key-usage-input-schema.json",
+  "title": "StartKeyUsageInput",
+  "description": "StartKeyUsageInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "KeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyArn</code> of the key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyIdentifier"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-key-state-structure.json",
+  "name": "KeyState",
+  "description": "Defines the state of a key",
+  "type": "string",
+  "enum": [
+    "CREATE_IN_PROGRESS",
+    "CREATE_COMPLETE",
+    "DELETE_PENDING",
+    "DELETE_COMPLETE"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-create-key-output-schema.json",
+  "title": "CreateKeyOutput",
+  "description": "CreateKeyOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Key": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Key"
+        },
+        {
+          "description": "The key material that contains all the key attributes."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Key"
+  ]
+}

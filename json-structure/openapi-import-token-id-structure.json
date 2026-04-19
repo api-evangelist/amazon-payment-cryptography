@@ -1,0 +1,8 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-import-token-id-structure.json",
+  "name": "ImportTokenId",
+  "description": "ImportTokenId schema from Amazon Payment Cryptography",
+  "type": "string",
+  "pattern": "^import-token-[0-9a-zA-Z]{16,64}$"
+}

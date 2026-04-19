@@ -1,0 +1,7 @@
+{
+  "ExportToken": "example-string",
+  "ParametersValidUntilTimestamp": "resource-abc123",
+  "SigningKeyAlgorithm": "example-string",
+  "SigningKeyCertificate": "example-string",
+  "SigningKeyCertificateChain": "example-string"
+}

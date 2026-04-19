@@ -1,0 +1,41 @@
+vocabulary: 1.0.0
+info:
+  provider: Amazon Payment Cryptography
+  description: Unified vocabulary for Amazon Payment Cryptography APIs.
+  created: '2026-04-19'
+  modified: '2026-04-19'
+operational:
+  apis:
+  - name: Payment Cryptography Control Plane
+    namespace: openapi.yml
+    version: '2021-09-14'
+    baseUrl: http://controlplane.payment-cryptography.{region}.amazonaws.com
+    status: active
+  actions:
+  - name: create
+    method: POST
+    pattern: write
+capability:
+  workflows:
+  - name: Amazon Payment Cryptography API Workflow
+    file: capabilities/amazon-payment-cryptography-workflow.yaml
+    description: Core API workflow
+    apis:
+    - openapi.yml
+    personas:
+    - Developer
+  personas:
+  - id: developer
+    name: Developer
+    description: Developer using Amazon Payment Cryptography APIs
+  domains:
+  - Amazon Payment Cryptography
+  - AWS
+crossReference:
+- resource: Payment Cryptography Control Plane
+  apis:
+  - openapi.yml
+  workflows:
+  - Amazon Payment Cryptography API Workflow
+  personas:
+  - Developer

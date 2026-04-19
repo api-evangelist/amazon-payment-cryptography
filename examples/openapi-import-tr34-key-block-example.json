@@ -1,0 +1,8 @@
+{
+  "CertificateAuthorityPublicKeyIdentifier": "resource-abc123",
+  "ImportToken": "example-string",
+  "KeyBlockFormat": "example-string",
+  "RandomNonce": "example-string",
+  "SigningKeyCertificate": "example-string",
+  "WrappedKeyBlock": "example-string"
+}

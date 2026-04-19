@@ -1,0 +1,49 @@
+naftiko: 1.0.0-alpha1
+info:
+  label: Amazon Payment Cryptography API Workflow
+  description: Workflow capability composing Amazon Payment Cryptography APIs for developers and operators.
+  tags:
+  - Amazon Payment Cryptography
+  - AWS
+  created: '2026-04-19'
+  modified: '2026-04-19'
+binds:
+- namespace: env
+  keys:
+    AWS_SIGV4_AUTH: AWS_SIGV4_AUTH
+capability:
+  consumes:
+  - import: payment_cryptography
+    location: ./shared/payment-cryptography.yaml
+  exposes:
+  - type: rest
+    port: 8080
+    namespace: amazon-payment-cryptography-api
+    description: Unified REST API for Amazon Payment Cryptography.
+    resources:
+    - path: /v1/resources
+      name: resources
+      description: Primary Amazon Payment Cryptography resources
+      operations:
+      - method: GET
+        name: list-resources
+        description: List Amazon Payment Cryptography resources
+        call: openapi.yml.list
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    port: 9090
+    namespace: amazon-payment-cryptography-mcp
+    transport: http
+    description: MCP server for AI-assisted Amazon Payment Cryptography operations.
+    tools:
+    - name: list-openapi.yml
+      description: List and manage openapi.yml resources
+      hints:
+        readOnly: true
+        openWorld: true
+      call: openapi.yml.list
+      outputParameters:
+      - type: object
+        mapping: $.

@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-class-schema.json",
+  "title": "KeyClass",
+  "description": "KeyClass schema from Amazon Payment Cryptography",
+  "type": "string",
+  "enum": [
+    "SYMMETRIC_KEY",
+    "ASYMMETRIC_KEY_PAIR",
+    "PRIVATE_KEY",
+    "PUBLIC_KEY"
+  ]
+}

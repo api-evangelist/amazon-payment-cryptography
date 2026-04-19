@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-key-algorithm-structure.json",
+  "name": "KeyAlgorithm",
+  "description": "KeyAlgorithm schema from Amazon Payment Cryptography",
+  "type": "string",
+  "enum": [
+    "TDES_2KEY",
+    "TDES_3KEY",
+    "AES_128",
+    "AES_192",
+    "AES_256",
+    "RSA_2048",
+    "RSA_3072",
+    "RSA_4096"
+  ]
+}

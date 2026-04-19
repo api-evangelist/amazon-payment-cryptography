@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-restore-key-input-schema.json",
+  "title": "RestoreKeyInput",
+  "description": "RestoreKeyInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "KeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the key to be restored within Amazon Web Services Payment Cryptography."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyIdentifier"
+  ]
+}

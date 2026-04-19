@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-get-key-input-structure.json",
+  "name": "GetKeyInput",
+  "description": "GetKeyInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "KeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the Amazon Web Services Payment Cryptography key."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyIdentifier"
+  ]
+}

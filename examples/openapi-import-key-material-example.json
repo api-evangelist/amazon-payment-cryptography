@@ -1,0 +1,6 @@
+{
+  "RootCertificatePublicKey": "example-string",
+  "Tr31KeyBlock": "example-string",
+  "Tr34KeyBlock": "example-string",
+  "TrustedCertificatePublicKey": "example-string"
+}

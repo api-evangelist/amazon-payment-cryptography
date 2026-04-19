@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-wrapped-key-material-format-structure.json",
+  "name": "WrappedKeyMaterialFormat",
+  "description": "WrappedKeyMaterialFormat schema from Amazon Payment Cryptography",
+  "type": "string",
+  "enum": [
+    "KEY_CRYPTOGRAM",
+    "TR31_KEY_BLOCK",
+    "TR34_KEY_BLOCK"
+  ]
+}

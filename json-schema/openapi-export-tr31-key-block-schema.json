@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-export-tr31-key-block-schema.json",
+  "title": "ExportTr31KeyBlock",
+  "description": "Parameter information for key material export using TR-31 standard.",
+  "type": "object",
+  "properties": {
+    "WrappingKeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the the wrapping key. This key encrypts or wraps the key under export for TR-31 key block generation."
+        }
+      ]
+    }
+  },
+  "required": [
+    "WrappingKeyIdentifier"
+  ]
+}

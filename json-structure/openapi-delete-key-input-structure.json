@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-delete-key-input-structure.json",
+  "name": "DeleteKeyInput",
+  "description": "DeleteKeyInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "DeleteKeyInDays": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/DeleteKeyInputDeleteKeyInDaysInteger"
+        },
+        {
+          "description": "The waiting period for key deletion. The default value is seven days."
+        }
+      ]
+    },
+    "KeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the key that is scheduled for deletion."
+        }
+      ]
+    }
+  },
+  "required": [
+    "KeyIdentifier"
+  ]
+}

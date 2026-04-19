@@ -1,0 +1,99 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-key-modes-of-use-structure.json",
+  "name": "KeyModesOfUse",
+  "description": "The list of cryptographic operations that you can perform using the key. The modes of use are de\ufb01ned in section A.5.3 of the TR-31 spec.",
+  "type": "object",
+  "properties": {
+    "Decrypt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to decrypt data."
+        }
+      ]
+    },
+    "DeriveKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to derive new keys."
+        }
+      ]
+    },
+    "Encrypt": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to encrypt data."
+        }
+      ]
+    },
+    "Generate": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to generate and verify other card and PIN verification keys."
+        }
+      ]
+    },
+    "NoRestrictions": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key has no special restrictions other than the restrictions implied by <code>KeyUsage</code>."
+        }
+      ]
+    },
+    "Sign": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used for signing."
+        }
+      ]
+    },
+    "Unwrap": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to unwrap other keys."
+        }
+      ]
+    },
+    "Verify": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to verify signatures."
+        }
+      ]
+    },
+    "Wrap": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/PrimitiveBoolean"
+        },
+        {
+          "description": "Speci\ufb01es whether an Amazon Web Services Payment Cryptography key can be used to wrap other keys."
+        }
+      ]
+    }
+  }
+}

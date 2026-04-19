@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-import-key-material-schema.json",
+  "title": "ImportKeyMaterial",
+  "description": "Parameter information for key material import.",
+  "type": "object",
+  "properties": {
+    "RootCertificatePublicKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/RootCertificatePublicKey"
+        },
+        {
+          "description": "Parameter information for root public key certificate import."
+        }
+      ]
+    },
+    "Tr31KeyBlock": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImportTr31KeyBlock"
+        },
+        {
+          "description": "Parameter information for key material import using TR-31 standard."
+        }
+      ]
+    },
+    "Tr34KeyBlock": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/ImportTr34KeyBlock"
+        },
+        {
+          "description": "Parameter information for key material import using TR-34 standard."
+        }
+      ]
+    },
+    "TrustedCertificatePublicKey": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/TrustedCertificatePublicKey"
+        },
+        {
+          "description": "Parameter information for trusted public key certificate import."
+        }
+      ]
+    }
+  }
+}

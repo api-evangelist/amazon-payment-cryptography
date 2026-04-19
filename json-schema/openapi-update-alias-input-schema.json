@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-update-alias-input-schema.json",
+  "title": "UpdateAliasInput",
+  "description": "UpdateAliasInput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "AliasName": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/AliasName"
+        },
+        {
+          "description": "The alias whose associated key is changing."
+        }
+      ]
+    },
+    "KeyArn": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArn"
+        },
+        {
+          "description": "The <code>KeyARN</code> for the key that you are updating or removing from the alias."
+        }
+      ]
+    }
+  },
+  "required": [
+    "AliasName"
+  ]
+}

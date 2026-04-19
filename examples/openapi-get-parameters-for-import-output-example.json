@@ -1,0 +1,7 @@
+{
+  "ImportToken": "example-string",
+  "ParametersValidUntilTimestamp": "resource-abc123",
+  "WrappingKeyAlgorithm": "example-string",
+  "WrappingKeyCertificate": "example-string",
+  "WrappingKeyCertificateChain": "example-string"
+}

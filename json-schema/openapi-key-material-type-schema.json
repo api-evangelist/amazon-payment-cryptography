@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-material-type-schema.json",
+  "title": "KeyMaterialType",
+  "description": "KeyMaterialType schema from Amazon Payment Cryptography",
+  "type": "string",
+  "enum": [
+    "TR34_KEY_BLOCK",
+    "TR31_KEY_BLOCK",
+    "ROOT_PUBLIC_KEY_CERTIFICATE",
+    "TRUSTED_PUBLIC_KEY_CERTIFICATE"
+  ]
+}

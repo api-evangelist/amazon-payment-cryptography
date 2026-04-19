@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-update-alias-output-structure.json",
+  "name": "UpdateAliasOutput",
+  "description": "UpdateAliasOutput schema from Amazon Payment Cryptography",
+  "type": "object",
+  "properties": {
+    "Alias": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Alias"
+        },
+        {
+          "description": "The alias name."
+        }
+      ]
+    }
+  },
+  "required": [
+    "Alias"
+  ]
+}

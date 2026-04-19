@@ -1,0 +1,11 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-origin-schema.json",
+  "title": "KeyOrigin",
+  "description": "Defines the source of a key",
+  "type": "string",
+  "enum": [
+    "EXTERNAL",
+    "AWS_PAYMENT_CRYPTOGRAPHY"
+  ]
+}

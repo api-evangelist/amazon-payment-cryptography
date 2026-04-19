@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-schema/openapi-key-state-schema.json",
+  "title": "KeyState",
+  "description": "Defines the state of a key",
+  "type": "string",
+  "enum": [
+    "CREATE_IN_PROGRESS",
+    "CREATE_COMPLETE",
+    "DELETE_PENDING",
+    "DELETE_COMPLETE"
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/json-structure/openapi-import-tr31-key-block-structure.json",
+  "name": "ImportTr31KeyBlock",
+  "description": "Parameter information for key material import using TR-31 standard.",
+  "type": "object",
+  "properties": {
+    "WrappedKeyBlock": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/Tr31WrappedKeyBlock"
+        },
+        {
+          "description": "The TR-34 wrapped key block to import."
+        }
+      ]
+    },
+    "WrappingKeyIdentifier": {
+      "allOf": [
+        {
+          "$ref": "#/components/schemas/KeyArnOrKeyAliasType"
+        },
+        {
+          "description": "The <code>KeyARN</code> of the key that will decrypt or unwrap a TR-31 key block during import."
+        }
+      ]
+    }
+  },
+  "required": [
+    "WrappedKeyBlock",
+    "WrappingKeyIdentifier"
+  ]
+}
