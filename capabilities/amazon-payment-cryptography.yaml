@@ -1,0 +1,1036 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Payment Cryptography Control Plane
+  description: 'Payment Cryptography Control Plane. 20 operations. Lead operation: Amazon Payment Cryptography Create Alias.
+    Self-contained Naftiko capability covering one Amazon Payment Cryptography business surface.'
+  tags:
+  - Amazon Payment Cryptography
+  - Payment Cryptography Control Plane
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_PAYMENT_CRYPTOGRAPHY_API_KEY: AMAZON_PAYMENT_CRYPTOGRAPHY_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-payment-cryptography
+    baseUri: http://controlplane.payment-cryptography.{region}.amazonaws.com
+    description: Payment Cryptography Control Plane business capability. Self-contained, no shared references.
+    resources:
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.CreateAlias'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.CreateAlias
+      operations:
+      - name: createalias
+        method: POST
+        description: Amazon Payment Cryptography Create Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.CreateKey'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.CreateKey
+      operations:
+      - name: createkey
+        method: POST
+        description: Amazon Payment Cryptography Create Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.DeleteAlias'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.DeleteAlias
+      operations:
+      - name: deletealias
+        method: POST
+        description: Amazon Payment Cryptography Delete Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.DeleteKey'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.DeleteKey
+      operations:
+      - name: deletekey
+        method: POST
+        description: Amazon Payment Cryptography Delete Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey
+      operations:
+      - name: exportkey
+        method: POST
+        description: Amazon Payment Cryptography Export Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.GetAlias'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.GetAlias
+      operations:
+      - name: getalias
+        method: POST
+        description: Amazon Payment Cryptography Get Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.GetKey'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.GetKey
+      operations:
+      - name: getkey
+        method: POST
+        description: Amazon Payment Cryptography Get Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.GetParametersForExport'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.GetParametersForExport
+      operations:
+      - name: getparametersforexport
+        method: POST
+        description: Amazon Payment Cryptography Get Parameters for Export
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.GetParametersForImport'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.GetParametersForImport
+      operations:
+      - name: getparametersforimport
+        method: POST
+        description: Amazon Payment Cryptography Get Parameters for Import
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate
+      operations:
+      - name: getpublickeycertificate
+        method: POST
+        description: Amazon Payment Cryptography Get Public Key Certificate
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.ImportKey'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.ImportKey
+      operations:
+      - name: importkey
+        method: POST
+        description: Amazon Payment Cryptography Import Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.ListAliases'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.ListAliases
+      operations:
+      - name: listaliases
+        method: POST
+        description: Amazon Payment Cryptography List Aliases
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.ListKeys'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.ListKeys
+      operations:
+      - name: listkeys
+        method: POST
+        description: Amazon Payment Cryptography List Keys
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.ListTagsForResource'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.ListTagsForResource
+      operations:
+      - name: listtagsforresource
+        method: POST
+        description: Amazon Payment Cryptography List Tags for Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: MaxResults
+          in: query
+          type: string
+          description: Pagination limit
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.RestoreKey'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.RestoreKey
+      operations:
+      - name: restorekey
+        method: POST
+        description: Amazon Payment Cryptography Restore Key
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.StartKeyUsage'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.StartKeyUsage
+      operations:
+      - name: startkeyusage
+        method: POST
+        description: Amazon Payment Cryptography Start Key Usage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.StopKeyUsage'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.StopKeyUsage
+      operations:
+      - name: stopkeyusage
+        method: POST
+        description: Amazon Payment Cryptography Stop Key Usage
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.TagResource'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.TagResource
+      operations:
+      - name: tagresource
+        method: POST
+        description: Amazon Payment Cryptography Tag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.UntagResource'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.UntagResource
+      operations:
+      - name: untagresource
+        method: POST
+        description: Amazon Payment Cryptography Untag Resource
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: '#X-Amz-Target=PaymentCryptographyControlPlane.UpdateAlias'
+      path: /#X-Amz-Target=PaymentCryptographyControlPlane.UpdateAlias
+      operations:
+      - name: updatealias
+        method: POST
+        description: Amazon Payment Cryptography Update Alias
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: X-Amz-Target
+          in: header
+          type: string
+          required: true
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_PAYMENT_CRYPTOGRAPHY_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-payment-cryptography-rest
+    port: 8080
+    description: REST adapter for Payment Cryptography Control Plane. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-createalias
+      name: x-amz-target-paymentcryptographycontrolplane-createalias
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.CreateAlias.'
+      operations:
+      - method: POST
+        name: createalias
+        description: Amazon Payment Cryptography Create Alias
+        call: amazon-payment-cryptography.createalias
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-createkey
+      name: x-amz-target-paymentcryptographycontrolplane-createkey
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.CreateKey.'
+      operations:
+      - method: POST
+        name: createkey
+        description: Amazon Payment Cryptography Create Key
+        call: amazon-payment-cryptography.createkey
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-deletealias
+      name: x-amz-target-paymentcryptographycontrolplane-deletealias
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.DeleteAlias.'
+      operations:
+      - method: POST
+        name: deletealias
+        description: Amazon Payment Cryptography Delete Alias
+        call: amazon-payment-cryptography.deletealias
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-deletekey
+      name: x-amz-target-paymentcryptographycontrolplane-deletekey
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.DeleteKey.'
+      operations:
+      - method: POST
+        name: deletekey
+        description: Amazon Payment Cryptography Delete Key
+        call: amazon-payment-cryptography.deletekey
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-exportkey
+      name: x-amz-target-paymentcryptographycontrolplane-exportkey
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.ExportKey.'
+      operations:
+      - method: POST
+        name: exportkey
+        description: Amazon Payment Cryptography Export Key
+        call: amazon-payment-cryptography.exportkey
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-getalias
+      name: x-amz-target-paymentcryptographycontrolplane-getalias
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.GetAlias.'
+      operations:
+      - method: POST
+        name: getalias
+        description: Amazon Payment Cryptography Get Alias
+        call: amazon-payment-cryptography.getalias
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-getkey
+      name: x-amz-target-paymentcryptographycontrolplane-getkey
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.GetKey.'
+      operations:
+      - method: POST
+        name: getkey
+        description: Amazon Payment Cryptography Get Key
+        call: amazon-payment-cryptography.getkey
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-getparametersforexport
+      name: x-amz-target-paymentcryptographycontrolplane-getparametersforexport
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.GetParametersForExport.'
+      operations:
+      - method: POST
+        name: getparametersforexport
+        description: Amazon Payment Cryptography Get Parameters for Export
+        call: amazon-payment-cryptography.getparametersforexport
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-getparametersforimport
+      name: x-amz-target-paymentcryptographycontrolplane-getparametersforimport
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.GetParametersForImport.'
+      operations:
+      - method: POST
+        name: getparametersforimport
+        description: Amazon Payment Cryptography Get Parameters for Import
+        call: amazon-payment-cryptography.getparametersforimport
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-getpublickeycertificate
+      name: x-amz-target-paymentcryptographycontrolplane-getpublickeycertificate
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate.'
+      operations:
+      - method: POST
+        name: getpublickeycertificate
+        description: Amazon Payment Cryptography Get Public Key Certificate
+        call: amazon-payment-cryptography.getpublickeycertificate
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-importkey
+      name: x-amz-target-paymentcryptographycontrolplane-importkey
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.ImportKey.'
+      operations:
+      - method: POST
+        name: importkey
+        description: Amazon Payment Cryptography Import Key
+        call: amazon-payment-cryptography.importkey
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-listaliases
+      name: x-amz-target-paymentcryptographycontrolplane-listaliases
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.ListAliases.'
+      operations:
+      - method: POST
+        name: listaliases
+        description: Amazon Payment Cryptography List Aliases
+        call: amazon-payment-cryptography.listaliases
+        with:
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-listkeys
+      name: x-amz-target-paymentcryptographycontrolplane-listkeys
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.ListKeys.'
+      operations:
+      - method: POST
+        name: listkeys
+        description: Amazon Payment Cryptography List Keys
+        call: amazon-payment-cryptography.listkeys
+        with:
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-listtagsforresource
+      name: x-amz-target-paymentcryptographycontrolplane-listtagsforresource
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.ListTagsForResource.'
+      operations:
+      - method: POST
+        name: listtagsforresource
+        description: Amazon Payment Cryptography List Tags for Resource
+        call: amazon-payment-cryptography.listtagsforresource
+        with:
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-restorekey
+      name: x-amz-target-paymentcryptographycontrolplane-restorekey
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.RestoreKey.'
+      operations:
+      - method: POST
+        name: restorekey
+        description: Amazon Payment Cryptography Restore Key
+        call: amazon-payment-cryptography.restorekey
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-startkeyusage
+      name: x-amz-target-paymentcryptographycontrolplane-startkeyusage
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.StartKeyUsage.'
+      operations:
+      - method: POST
+        name: startkeyusage
+        description: Amazon Payment Cryptography Start Key Usage
+        call: amazon-payment-cryptography.startkeyusage
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-stopkeyusage
+      name: x-amz-target-paymentcryptographycontrolplane-stopkeyusage
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.StopKeyUsage.'
+      operations:
+      - method: POST
+        name: stopkeyusage
+        description: Amazon Payment Cryptography Stop Key Usage
+        call: amazon-payment-cryptography.stopkeyusage
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-tagresource
+      name: x-amz-target-paymentcryptographycontrolplane-tagresource
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.TagResource.'
+      operations:
+      - method: POST
+        name: tagresource
+        description: Amazon Payment Cryptography Tag Resource
+        call: amazon-payment-cryptography.tagresource
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-untagresource
+      name: x-amz-target-paymentcryptographycontrolplane-untagresource
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.UntagResource.'
+      operations:
+      - method: POST
+        name: untagresource
+        description: Amazon Payment Cryptography Untag Resource
+        call: amazon-payment-cryptography.untagresource
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/x-amz-target-paymentcryptographycontrolplane-updatealias
+      name: x-amz-target-paymentcryptographycontrolplane-updatealias
+      description: 'REST surface for #X-Amz-Target=PaymentCryptographyControlPlane.UpdateAlias.'
+      operations:
+      - method: POST
+        name: updatealias
+        description: Amazon Payment Cryptography Update Alias
+        call: amazon-payment-cryptography.updatealias
+        with:
+          X-Amz-Target: rest.X-Amz-Target
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-payment-cryptography-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Payment Cryptography Control Plane. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-payment-cryptography-create-alias
+      description: Amazon Payment Cryptography Create Alias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.createalias
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-create-key
+      description: Amazon Payment Cryptography Create Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.createkey
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-delete-alias
+      description: Amazon Payment Cryptography Delete Alias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.deletealias
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-delete-key
+      description: Amazon Payment Cryptography Delete Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.deletekey
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-export-key
+      description: Amazon Payment Cryptography Export Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.exportkey
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-get-alias
+      description: Amazon Payment Cryptography Get Alias
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.getalias
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-get-key
+      description: Amazon Payment Cryptography Get Key
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.getkey
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-get-parameters
+      description: Amazon Payment Cryptography Get Parameters for Export
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.getparametersforexport
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-get-parameters-2
+      description: Amazon Payment Cryptography Get Parameters for Import
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.getparametersforimport
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-get-public
+      description: Amazon Payment Cryptography Get Public Key Certificate
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.getpublickeycertificate
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-import-key
+      description: Amazon Payment Cryptography Import Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.importkey
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-list-aliases
+      description: Amazon Payment Cryptography List Aliases
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.listaliases
+      with:
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-list-keys
+      description: Amazon Payment Cryptography List Keys
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.listkeys
+      with:
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-list-tags
+      description: Amazon Payment Cryptography List Tags for Resource
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.listtagsforresource
+      with:
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-restore-key
+      description: Amazon Payment Cryptography Restore Key
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.restorekey
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-start-key
+      description: Amazon Payment Cryptography Start Key Usage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.startkeyusage
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-stop-key
+      description: Amazon Payment Cryptography Stop Key Usage
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.stopkeyusage
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-tag-resource
+      description: Amazon Payment Cryptography Tag Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.tagresource
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-untag-resource
+      description: Amazon Payment Cryptography Untag Resource
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.untagresource
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-payment-cryptography-update-alias
+      description: Amazon Payment Cryptography Update Alias
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-payment-cryptography.updatealias
+      with:
+        X-Amz-Target: tools.X-Amz-Target
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

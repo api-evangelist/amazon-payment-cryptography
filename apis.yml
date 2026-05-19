@@ -1,11 +1,8 @@
 aid: amazon-payment-cryptography
 name: Amazon Payment Cryptography
-description: >-
-  AWS Payment Cryptography is a managed service that makes it easy to build
-  and maintain payment processing applications by providing cloud-based
-  cryptographic capabilities. It enables you to perform cryptographic operations
-  required by payment card industry standards without managing hardware security
-  modules.
+description: AWS Payment Cryptography is a managed service that makes it easy to build and maintain payment processing applications
+  by providing cloud-based cryptographic capabilities. It enables you to perform cryptographic operations required by payment
+  card industry standards without managing hardware security modules.
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
@@ -14,18 +11,15 @@ tags:
 - Financial Services
 - Payment Processing
 - PCI
-url: >-
-  https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/apis.yml
+url: https://raw.githubusercontent.com/api-evangelist/amazon-payment-cryptography/refs/heads/main/apis.yml
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
 - aid: amazon-payment-cryptography:aws-payment-cryptography-api
   name: AWS Payment Cryptography API
-  description: >-
-    The AWS Payment Cryptography API provides programmatic access to manage
-    keys, aliases, and perform cryptographic operations for payment processing
-    applications that require PCI-compliant security.
+  description: The AWS Payment Cryptography API provides programmatic access to manage keys, aliases, and perform cryptographic
+    operations for payment processing applications that require PCI-compliant security.
   humanURL: https://aws.amazon.com/payment-cryptography/
   baseURL: https://controlplane.payment-cryptography.amazonaws.com
   tags:
@@ -43,6 +37,8 @@ apis:
     url: https://aws.amazon.com/payment-cryptography/pricing/
   - type: FAQ
     url: https://aws.amazon.com/payment-cryptography/faqs/
+  - type: NaftikoCapability
+    url: capabilities/amazon-payment-cryptography.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/payment-cryptography/
@@ -74,8 +70,6 @@ common:
   url: rules/amazon-payment-cryptography-spectral-rules.yml
 - type: Vocabulary
   url: vocabulary/amazon-payment-cryptography-vocabulary.yaml
-- type: NaftikoCapability
-  url: capabilities/amazon-payment-cryptography-workflow.yaml
 - type: JSONLD
   url: json-ld/amazon-payment-cryptography-openapi-context.jsonld
 - type: JSONSchema
