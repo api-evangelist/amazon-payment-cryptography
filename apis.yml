@@ -5,7 +5,7 @@ description: >-
   by providing cloud-based cryptographic capabilities. It enables you to perform cryptographic operations required by
   payment card industry standards without managing hardware security modules.
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
   - AWS
   - Cryptography
