@@ -40,6 +40,14 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/payment-cryptography/faqs/
 common:
+  - type: TrustCenter
+    url: security/amazon-payment-cryptography-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-payment-cryptography-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-payment-cryptography-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-payment-cryptography-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/payment-cryptography/
   - type: Website
