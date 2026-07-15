@@ -40,6 +40,8 @@ apis:
       - type: FAQ
         url: https://aws.amazon.com/payment-cryptography/faqs/
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-payment-cryptography-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-payment-cryptography-trust-center.yml
   - type: VulnerabilityDisclosure
