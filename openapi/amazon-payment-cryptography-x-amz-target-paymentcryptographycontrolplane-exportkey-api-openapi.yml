@@ -1,0 +1,399 @@
+openapi: 3.0.0
+info:
+  version: '2021-09-14'
+  x-release: v4
+  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.ExportKey API'
+  description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
+  x-logo:
+    url: https://twitter.com/awscloud/profile_image?size=original
+    backgroundColor: '#FFFFFF'
+  termsOfService: https://aws.amazon.com/service-terms/
+  contact:
+    name: Mike Ralphson
+    email: mike.ralphson@gmail.com
+    url: https://github.com/mermade/aws2openapi
+    x-twitter: PermittedSoc
+  license:
+    name: Apache 2.0 License
+    url: http://www.apache.org/licenses/
+  x-providerName: amazonaws.com
+  x-serviceName: payment-cryptography
+  x-aws-signingName: payment-cryptography
+  x-origin:
+  - contentType: application/json
+    url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/payment-cryptography-2021-09-14.normal.json
+    converter:
+      url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
+    x-apisguru-driver: external
+  x-apiClientRegistration:
+    url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
+  x-apisguru-categories:
+  - cloud
+  x-preferred: true
+servers:
+- url: http://controlplane.payment-cryptography.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Payment Cryptography Control Plane multi-region endpoint
+- url: https://controlplane.payment-cryptography.{region}.amazonaws.com
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - us-east-1
+      - us-east-2
+      - us-west-1
+      - us-west-2
+      - us-gov-west-1
+      - us-gov-east-1
+      - ca-central-1
+      - eu-north-1
+      - eu-west-1
+      - eu-west-2
+      - eu-west-3
+      - eu-central-1
+      - eu-south-1
+      - af-south-1
+      - ap-northeast-1
+      - ap-northeast-2
+      - ap-northeast-3
+      - ap-southeast-1
+      - ap-southeast-2
+      - ap-east-1
+      - ap-south-1
+      - sa-east-1
+      - me-south-1
+      default: us-east-1
+  description: The Payment Cryptography Control Plane multi-region endpoint
+- url: http://controlplane.payment-cryptography.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Payment Cryptography Control Plane endpoint for China (Beijing) and China (Ningxia)
+- url: https://controlplane.payment-cryptography.{region}.amazonaws.com.cn
+  variables:
+    region:
+      description: The AWS region
+      enum:
+      - cn-north-1
+      - cn-northwest-1
+      default: cn-north-1
+  description: The Payment Cryptography Control Plane endpoint for China (Beijing) and China (Ningxia)
+security:
+- hmac: []
+tags:
+- name: '#X Amz Target=PaymentCryptographyControlPlane.ExportKey'
+paths:
+  /#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey:
+    parameters:
+    - $ref: '#/components/parameters/X-Amz-Content-Sha256'
+    - $ref: '#/components/parameters/X-Amz-Date'
+    - $ref: '#/components/parameters/X-Amz-Algorithm'
+    - $ref: '#/components/parameters/X-Amz-Credential'
+    - $ref: '#/components/parameters/X-Amz-Security-Token'
+    - $ref: '#/components/parameters/X-Amz-Signature'
+    - $ref: '#/components/parameters/X-Amz-SignedHeaders'
+    post:
+      operationId: ExportKey
+      description: <p>Exports a key from Amazon Web Services Payment Cryptography using either ANSI X9 TR-34 or TR-31 key export standard.</p> <p>Amazon Web Services Payment Cryptography simplifies main or root key exchange process by eliminating the need of a paper-based key exchange process. It takes a modern and secure approach based of the ANSI X9 TR-34 key exchange standard.</p> <p>You can use <code>ExportKey</code> to export main or root keys such as KEK (Key Encryption Key), using asymmetric key exchange technique following ANSI X9 TR-34 standard. The ANSI X9 TR-34 standard uses asymmetric keys to establishes bi-directional trust between the two parties exchanging keys. After which you can export working keys using the ANSI X9 TR-31 symmetric key exchange standard as mandated by PCI PIN. Using this operation, you can share your Amazon Web Services Payment Cryptography generated keys with other service partners to perform cryptographic operations outside of Amazon Web Services Payment Cryptography </p> <p> <b>TR-34 key export</b> </p> <p>Amazon Web Services Payment Cryptography uses TR-34 asymmetric key exchange standard to export main keys such as KEK. In TR-34 terminology, the sending party of the key is called Key Distribution Host (KDH) and the receiving party of the key is called Key Receiving Host (KRH). In key export process, KDH is Amazon Web Services Payment Cryptography which initiates key export. KRH is the user receiving the key. Before you initiate TR-34 key export, you must obtain an export token by calling <a>GetParametersForExport</a>. This operation also returns the signing key certificate that KDH uses to sign the wrapped key to generate a TR-34 wrapped key block. The export token expires after 7 days.</p> <p>Set the following parameters:</p> <dl> <dt>CertificateAuthorityPublicKeyIdentifier</dt> <dd> <p>The <code>KeyARN</code> of the certificate chain that will sign the wrapping key certificate. This must exist within Amazon Web Services Payment Cryptography before you initiate TR-34 key export. If it does not exist, you can import it by calling <a>ImportKey</a> for <code>RootCertificatePublicKey</code>.</p> </dd> <dt>ExportToken</dt> <dd> <p>Obtained from KDH by calling <a>GetParametersForExport</a>.</p> </dd> <dt>WrappingKeyCertificate</dt> <dd> <p>Amazon Web Services Payment Cryptography uses this to wrap the key under export.</p> </dd> </dl> <p>When this operation is successful, Amazon Web Services Payment Cryptography returns the TR-34 wrapped key block. </p> <p> <b>TR-31 key export</b> </p> <p>Amazon Web Services Payment Cryptography uses TR-31 symmetric key exchange standard to export working keys. In TR-31, you must use a main key such as KEK to encrypt or wrap the key under export. To establish a KEK, you can use <a>CreateKey</a> or <a>ImportKey</a>. When this operation is successful, Amazon Web Services Payment Cryptography returns a TR-31 wrapped key block. </p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>GetParametersForExport</a> </p> </li> <li> <p> <a>ImportKey</a> </p> </li> </ul>
+      responses:
+        '200':
+          description: Success
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExportKeyOutput'
+              examples:
+                ExportKey200Example:
+                  summary: Default ExportKey 200 response
+                  x-microcks-default: true
+                  value:
+                    WrappedKey: example-string
+        '480':
+          description: ServiceUnavailableException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ServiceUnavailableException'
+        '481':
+          description: ValidationException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationException'
+        '482':
+          description: ConflictException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ConflictException'
+        '483':
+          description: AccessDeniedException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AccessDeniedException'
+        '484':
+          description: ResourceNotFoundException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ResourceNotFoundException'
+        '485':
+          description: ThrottlingException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ThrottlingException'
+        '486':
+          description: InternalServerException
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InternalServerException'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ExportKeyInput'
+      parameters:
+      - name: X-Amz-Target
+        in: header
+        required: true
+        schema:
+          type: string
+          enum:
+          - PaymentCryptographyControlPlane.ExportKey
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+      summary: Amazon Payment Cryptography Export Key
+      tags:
+      - '#X Amz Target=PaymentCryptographyControlPlane.ExportKey'
+components:
+  parameters:
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+  schemas:
+    KeyArnOrKeyAliasType:
+      type: string
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:(key/[0-9a-zA-Z]{16,64}|alias/[a-zA-Z0-9/_-]+)$|^alias/[a-zA-Z0-9/_-]+$
+      minLength: 7
+      maxLength: 322
+    InternalServerException: {}
+    ThrottlingException: {}
+    ServiceUnavailableException: {}
+    ExportKeyInput:
+      type: object
+      required:
+      - ExportKeyIdentifier
+      - KeyMaterial
+      title: ExportKeyInput
+      properties:
+        ExportKeyIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/KeyArnOrKeyAliasType'
+          - description: The <code>KeyARN</code> of the key under export from Amazon Web Services Payment Cryptography.
+        KeyMaterial:
+          allOf:
+          - $ref: '#/components/schemas/ExportKeyMaterial'
+          - description: The key block format type, for example, TR-34 or TR-31, to use during key material export.
+    KeyArn:
+      type: string
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
+      minLength: 70
+      maxLength: 150
+    ConflictException: {}
+    ExportTokenId:
+      type: string
+      pattern: ^export-token-[0-9a-zA-Z]{16,64}$
+    KeyMaterial:
+      type: string
+      minLength: 48
+      maxLength: 16384
+      format: password
+    WrappedKey:
+      type: object
+      required:
+      - KeyMaterial
+      - WrappedKeyMaterialFormat
+      - WrappingKeyArn
+      properties:
+        KeyMaterial:
+          allOf:
+          - $ref: '#/components/schemas/KeyMaterial'
+          - description: Parameter information for generating a wrapped key using TR-31 or TR-34 standard.
+        WrappedKeyMaterialFormat:
+          allOf:
+          - $ref: '#/components/schemas/WrappedKeyMaterialFormat'
+          - description: The key block format of a wrapped key.
+        WrappingKeyArn:
+          allOf:
+          - $ref: '#/components/schemas/KeyArn'
+          - description: The <code>KeyARN</code> of the wrapped key.
+      description: Parameter information for generating a wrapped key using TR-31 or TR-34 standard.
+    CertificateType:
+      type: string
+      pattern: ^[^\[;\]<>]+$
+      minLength: 1
+      maxLength: 32768
+      format: password
+    ExportKeyOutput:
+      type: object
+      properties:
+        WrappedKey:
+          allOf:
+          - $ref: '#/components/schemas/WrappedKey'
+          - description: The key material under export as a TR-34 or TR-31 wrapped key block.
+    Tr34KeyBlockFormat:
+      type: string
+      enum:
+      - X9_TR34_2012
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    HexLength16:
+      type: string
+      pattern: ^[0-9A-F]+$
+      minLength: 16
+      maxLength: 16
+    ExportTr34KeyBlock:
+      type: object
+      required:
+      - CertificateAuthorityPublicKeyIdentifier
+      - ExportToken
+      - KeyBlockFormat
+      - WrappingKeyCertificate
+      properties:
+        CertificateAuthorityPublicKeyIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/KeyArnOrKeyAliasType'
+          - description: The <code>KeyARN</code> of the certificate chain that signs the wrapping key certificate during TR-34 key export.
+        ExportToken:
+          allOf:
+          - $ref: '#/components/schemas/ExportTokenId'
+          - description: The export token to initiate key export from Amazon Web Services Payment Cryptography. It also contains the signing key certificate that will sign the wrapped key during TR-34 key block generation. Call <a>GetParametersForExport</a> to receive an export token. It expires after 7 days. You can use the same export token to export multiple keys from the same service account.
+        KeyBlockFormat:
+          allOf:
+          - $ref: '#/components/schemas/Tr34KeyBlockFormat'
+          - description: The format of key block that Amazon Web Services Payment Cryptography will use during key export.
+        RandomNonce:
+          allOf:
+          - $ref: '#/components/schemas/HexLength16'
+          - description: A random number value that is unique to the TR-34 key block generated using 2 pass. The operation will fail, if a random nonce value is not provided for a TR-34 key block generated using 2 pass.
+        WrappingKeyCertificate:
+          allOf:
+          - $ref: '#/components/schemas/CertificateType'
+          - description: The <code>KeyARN</code> of the wrapping key certificate. Amazon Web Services Payment Cryptography uses this certificate to wrap the key under export.
+      description: Parameter information for key material export using TR-34 standard.
+    ExportKeyMaterial:
+      type: object
+      properties:
+        Tr31KeyBlock:
+          allOf:
+          - $ref: '#/components/schemas/ExportTr31KeyBlock'
+          - description: Parameter information for key material export using TR-31 standard.
+        Tr34KeyBlock:
+          allOf:
+          - $ref: '#/components/schemas/ExportTr34KeyBlock'
+          - description: Parameter information for key material export using TR-34 standard.
+      description: Parameter information for key material export from Amazon Web Services Payment Cryptography.
+    ExportTr31KeyBlock:
+      type: object
+      required:
+      - WrappingKeyIdentifier
+      properties:
+        WrappingKeyIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/KeyArnOrKeyAliasType'
+          - description: The <code>KeyARN</code> of the the wrapping key. This key encrypts or wraps the key under export for TR-31 key block generation.
+      description: Parameter information for key material export using TR-31 standard.
+    ValidationException: {}
+    WrappedKeyMaterialFormat:
+      type: string
+      enum:
+      - KEY_CRYPTOGRAM
+      - TR31_KEY_BLOCK
+      - TR34_KEY_BLOCK
+  securitySchemes:
+    hmac:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: Amazon Signature authorization v4
+      x-amazon-apigateway-authtype: awsSigv4
+externalDocs:
+  description: Amazon Web Services documentation
+  url: https://docs.aws.amazon.com/payment-cryptography/
+x-hasEquivalentPaths: true
