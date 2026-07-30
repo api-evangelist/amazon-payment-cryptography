@@ -5,7 +5,20 @@ description: >-
   by providing cloud-based cryptographic capabilities. It enables you to perform cryptographic operations required by
   payment card industry standards without managing hardware security modules.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-payment-cryptography.png
 tags:
   - AWS
   - Cryptography
@@ -17,29 +30,462 @@ created: '2026-03-16'
 modified: '2026-05-19'
 specificationVersion: '0.19'
 apis:
-  - aid: amazon-payment-cryptography:aws-payment-cryptography-api
-    name: AWS Payment Cryptography API
-    description: >-
-      The AWS Payment Cryptography API provides programmatic access to manage keys, aliases, and perform cryptographic
-      operations for payment processing applications that require PCI-compliant security.
-    humanURL: https://aws.amazon.com/payment-cryptography/
-    baseURL: https://controlplane.payment-cryptography.amazonaws.com
-    tags:
-      - Cryptography
-      - Financial Services
-      - Payment Processing
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
-      - type: OpenAPI
-        url: openapi/amazon-payment-cryptography-openapi.yml
-      - type: GettingStarted
-        url: https://aws.amazon.com/payment-cryptography/getting-started/
-      - type: Pricing
-        url: https://aws.amazon.com/payment-cryptography/pricing/
-      - type: FAQ
-        url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createalias-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.CreateAlias API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.CreateAlias API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.createalias.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.CreateAlias'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createalias-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createkey-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.CreateKey API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.CreateKey API from Amazon Payment Cryptography —
+    1 operation(s) for #x amz target=paymentcryptographycontrolplane.createkey.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.CreateKey'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createkey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletealias-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.DeleteAlias API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.DeleteAlias API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.deletealias.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.DeleteAlias'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletealias-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletekey-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.DeleteKey API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.DeleteKey API from Amazon Payment Cryptography —
+    1 operation(s) for #x amz target=paymentcryptographycontrolplane.deletekey.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.DeleteKey'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletekey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-exportkey-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.ExportKey API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.ExportKey API from Amazon Payment Cryptography —
+    1 operation(s) for #x amz target=paymentcryptographycontrolplane.exportkey.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.ExportKey'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-exportkey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getalias-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.GetAlias API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.GetAlias API from Amazon Payment Cryptography —
+    1 operation(s) for #x amz target=paymentcryptographycontrolplane.getalias.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.GetAlias'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getalias-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getkey-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.GetKey API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.GetKey API from Amazon Payment Cryptography — 1
+    operation(s) for #x amz target=paymentcryptographycontrolplane.getkey.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.GetKey'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getkey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getparametersforexport-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.getparametersforexport.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getparametersforexport-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getparametersforimport-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.GetParametersForImport API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.GetParametersForImport API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.getparametersforimport.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.GetParametersForImport'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getparametersforimport-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getpublickeycertificate-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate
+    API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate API from Amazon Payment
+    Cryptography — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.getpublickeycertificate.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getpublickeycertificate-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-importkey-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.ImportKey API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.ImportKey API from Amazon Payment Cryptography —
+    1 operation(s) for #x amz target=paymentcryptographycontrolplane.importkey.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.ImportKey'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-importkey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listaliases-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.ListAliases API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.ListAliases API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.listaliases.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.ListAliases'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listaliases-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listkeys-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.ListKeys API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.ListKeys API from Amazon Payment Cryptography —
+    1 operation(s) for #x amz target=paymentcryptographycontrolplane.listkeys.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.ListKeys'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listkeys-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listtagsforresource-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.ListTagsForResource API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.ListTagsForResource API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.listtagsforresource.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.ListTagsForResource'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listtagsforresource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-restorekey-api
+  name: 'Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.RestoreKey API'
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.RestoreKey API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.restorekey.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.RestoreKey'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-restorekey-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-startkeyusage-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.StartKeyUsage API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.StartKeyUsage API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.startkeyusage.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.StartKeyUsage'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-startkeyusage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-stopkeyusage-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.StopKeyUsage API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.StopKeyUsage API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.stopkeyusage.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.StopKeyUsage'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-stopkeyusage-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-tagresource-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.TagResource API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.TagResource API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.tagresource.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.TagResource'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-tagresource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-untagresource-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.UntagResource API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.UntagResource API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.untagresource.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.UntagResource'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-untagresource-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
+- aid: >-
+    amazon-payment-cryptography:amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-updatealias-api
+  name: >-
+    Amazon Payment Cryptography #X Amz Target=PaymentCryptographyControlPlane.UpdateAlias API
+  description: >-
+    The #X Amz Target=PaymentCryptographyControlPlane.UpdateAlias API from Amazon Payment Cryptography
+    — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.updatealias.
+  humanURL: https://aws.amazon.com/payment-cryptography/
+  baseURL: https://controlplane.payment-cryptography.amazonaws.com
+  tags:
+  - '#X Amz Target=PaymentCryptographyControlPlane.UpdateAlias'
+  properties:
+  - type: OpenAPI
+    url: >-
+      openapi/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-updatealias-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/payment-cryptography/latest/APIReference/Welcome.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/payment-cryptography/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/payment-cryptography/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/payment-cryptography/faqs/
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-payment-cryptography/overview
   - type: AgenticAccess
     url: agentic-access/amazon-payment-cryptography-agentic-access.yml
   - type: TrustCenter
