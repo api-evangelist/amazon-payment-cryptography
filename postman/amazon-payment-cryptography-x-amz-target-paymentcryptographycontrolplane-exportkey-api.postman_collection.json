@@ -1,0 +1,838 @@
+{
+  "info": {
+    "_postman_id": "b31e5c74-74fc-4a6a-b93d-c49d023b155a",
+    "name": "Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.ExportKey API",
+    "description": "<p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html\">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href=\"https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html\">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't con\ufb01gure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href=\"https://docs.aws.amazon.com/awscloudtrail/latest/userguide/\">CloudTrail User Guide</a>.</p>\n\nContact Support:\n Name: Mike Ralphson\n Email: mike.ralphson@gmail.com",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T10:41:46.000Z",
+    "updatedAt": "2026-07-28T10:41:46.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b31e5c74-74fc-4a6a-b93d-c49d023b155a"
+  },
+  "item": [
+    {
+      "name": "#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+      "item": [
+        {
+          "name": "Amazon Payment Cryptography Export Key",
+          "id": "c0450442-1ecb-403c-bcbf-1fb4dcc27444",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "description": "(Required) ",
+                "key": "X-Amz-Target",
+                "value": "PaymentCryptographyControlPlane.ExportKey"
+              },
+              {
+                "key": "X-Amz-Content-Sha256",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Date",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Algorithm",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Credential",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Security-Token",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-Signature",
+                "value": "<string>"
+              },
+              {
+                "key": "X-Amz-SignedHeaders",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+              "options": {
+                "raw": {
+                  "headerFamily": "json",
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+            },
+            "description": "<p>Exports a key from Amazon Web Services Payment Cryptography using either ANSI X9 TR-34 or TR-31 key export standard.</p> <p>Amazon Web Services Payment Cryptography simplifies main or root key exchange process by eliminating the need of a paper-based key exchange process. It takes a modern and secure approach based of the ANSI X9 TR-34 key exchange standard.</p> <p>You can use <code>ExportKey</code> to export main or root keys such as KEK (Key Encryption Key), using asymmetric key exchange technique following ANSI X9 TR-34 standard. The ANSI X9 TR-34 standard uses asymmetric keys to establishes bi-directional trust between the two parties exchanging keys. After which you can export working keys using the ANSI X9 TR-31 symmetric key exchange standard as mandated by PCI PIN. Using this operation, you can share your Amazon Web Services Payment Cryptography generated keys with other service partners to perform cryptographic operations outside of Amazon Web Services Payment Cryptography </p> <p> <b>TR-34 key export</b> </p> <p>Amazon Web Services Payment Cryptography uses TR-34 asymmetric key exchange standard to export main keys such as KEK. In TR-34 terminology, the sending party of the key is called Key Distribution Host (KDH) and the receiving party of the key is called Key Receiving Host (KRH). In key export process, KDH is Amazon Web Services Payment Cryptography which initiates key export. KRH is the user receiving the key. Before you initiate TR-34 key export, you must obtain an export token by calling <a>GetParametersForExport</a>. This operation also returns the signing key certificate that KDH uses to sign the wrapped key to generate a TR-34 wrapped key block. The export token expires after 7 days.</p> <p>Set the following parameters:</p> <dl> <dt>CertificateAuthorityPublicKeyIdentifier</dt> <dd> <p>The <code>KeyARN</code> of the certificate chain that will sign the wrapping key certificate. This must exist within Amazon Web Services Payment Cryptography before you initiate TR-34 key export. If it does not exist, you can import it by calling <a>ImportKey</a> for <code>RootCertificatePublicKey</code>.</p> </dd> <dt>ExportToken</dt> <dd> <p>Obtained from KDH by calling <a>GetParametersForExport</a>.</p> </dd> <dt>WrappingKeyCertificate</dt> <dd> <p>Amazon Web Services Payment Cryptography uses this to wrap the key under export.</p> </dd> </dl> <p>When this operation is successful, Amazon Web Services Payment Cryptography returns the TR-34 wrapped key block. </p> <p> <b>TR-31 key export</b> </p> <p>Amazon Web Services Payment Cryptography uses TR-31 symmetric key exchange standard to export working keys. In TR-31, you must use a main key such as KEK to encrypt or wrap the key under export. To establish a KEK, you can use <a>CreateKey</a> or <a>ImportKey</a>. When this operation is successful, Amazon Web Services Payment Cryptography returns a TR-31 wrapped key block. </p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>GetParametersForExport</a> </p> </li> <li> <p> <a>ImportKey</a> </p> </li> </ul>"
+          },
+          "response": [
+            {
+              "id": "00abe352-4de4-4a64-8857-92bf4474b75f",
+              "name": "Success",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{\n  \"WrappedKey\": {\n    \"KeyMaterial\": \"<string>\",\n    \"WrappedKeyMaterialFormat\": \"TR34_KEY_BLOCK\",\n    \"WrappingKeyArn\": \"arn:aws:payment-cryptography:te-ava-8178530:977322780196:key/yoFf2eneJyufcCeujouwiM6BdMD6zKJP4h\"\n  }\n}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-00abe352-4de4-4a64-8857-92bf4474b75f"
+            },
+            {
+              "id": "0e4981b2-317d-4f7c-9b84-7a52a8933187",
+              "name": "ServiceUnavailableException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-0e4981b2-317d-4f7c-9b84-7a52a8933187"
+            },
+            {
+              "id": "f094a72a-d0e0-41df-b058-27b9b486d000",
+              "name": "ValidationException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-f094a72a-d0e0-41df-b058-27b9b486d000"
+            },
+            {
+              "id": "e8fd02bb-10c6-4f07-af7c-c9344be07646",
+              "name": "ConflictException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-e8fd02bb-10c6-4f07-af7c-c9344be07646"
+            },
+            {
+              "id": "c820bfb3-aae9-41a1-89c1-f82dda7ea0a2",
+              "name": "AccessDeniedException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-c820bfb3-aae9-41a1-89c1-f82dda7ea0a2"
+            },
+            {
+              "id": "2c0af788-4f29-4967-8f9c-eb92b646ebf7",
+              "name": "ResourceNotFoundException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-2c0af788-4f29-4967-8f9c-eb92b646ebf7"
+            },
+            {
+              "id": "3ffc99ca-30b2-4248-8c8b-5ddebc30818c",
+              "name": "ThrottlingException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-3ffc99ca-30b2-4248-8c8b-5ddebc30818c"
+            },
+            {
+              "id": "a77330ef-703b-4f95-b9c4-68843788f131",
+              "name": "InternalServerException",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "description": "(Required) ",
+                    "key": "X-Amz-Target",
+                    "value": "PaymentCryptographyControlPlane.ExportKey"
+                  },
+                  {
+                    "key": "X-Amz-Content-Sha256",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Date",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Algorithm",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Credential",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Security-Token",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-Signature",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "X-Amz-SignedHeaders",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"ExportKeyIdentifier\": \"alias/slEvv2eBcN\",\n  \"KeyMaterial\": {\n    \"Tr31KeyBlock\": {\n      \"WrappingKeyIdentifier\": \"alias/MXhhVQLeDx4\"\n    },\n    \"Tr34KeyBlock\": {\n      \"CertificateAuthorityPublicKeyIdentifier\": \"alias/Q9C\",\n      \"ExportToken\": \"export-token-q0q1mMgDNlzSDgfpcLtva\",\n      \"KeyBlockFormat\": \"X9_TR34_2012\",\n      \"WrappingKeyCertificate\": \"%|\",\n      \"RandomNonce\": \"74235B5A74235B5A\"\n    }\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/#X-Amz-Target=PaymentCryptographyControlPlane.ExportKey",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "hash": "X-Amz-Target=PaymentCryptographyControlPlane.ExportKey"
+                }
+              },
+              "_postman_previewlanguage": "json",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "{}",
+              "createdAt": "2026-07-28T10:41:46.000Z",
+              "updatedAt": "2026-07-28T10:41:46.000Z",
+              "uid": "35240-a77330ef-703b-4f95-b9c4-68843788f131"
+            }
+          ],
+          "createdAt": "2026-07-28T10:41:46.000Z",
+          "updatedAt": "2026-07-28T10:41:46.000Z",
+          "uid": "35240-c0450442-1ecb-403c-bcbf-1fb4dcc27444"
+        }
+      ],
+      "id": "c8a9d24b-64cd-475b-afb8-71e06cbad4f8",
+      "createdAt": "2026-07-28T10:41:46.000Z",
+      "updatedAt": "2026-07-28T10:41:46.000Z",
+      "uid": "35240-c8a9d24b-64cd-475b-afb8-71e06cbad4f8"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "http://controlplane.payment-cryptography.{{region}}.amazonaws.com"
+    }
+  ]
+}
