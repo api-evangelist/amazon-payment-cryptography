@@ -22,6 +22,12 @@ image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/amazon-pay
 tags:
   - AWS
   - Cryptography
+  - Financial-Services
+  - Payment Processing
+  - PCI
+tags_raw:
+  - AWS
+  - Cryptography
   - Financial Services
   - Payment Processing
   - PCI
@@ -195,7 +201,8 @@ apis:
     — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.getparametersforexport.
   humanURL: https://aws.amazon.com/payment-cryptography/
   baseURL: https://controlplane.payment-cryptography.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport'
   properties:
   - type: OpenAPI
@@ -218,7 +225,8 @@ apis:
     — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.getparametersforimport.
   humanURL: https://aws.amazon.com/payment-cryptography/
   baseURL: https://controlplane.payment-cryptography.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=PaymentCryptographyControlPlane.GetParametersForImport'
   properties:
   - type: OpenAPI
@@ -242,7 +250,8 @@ apis:
     Cryptography — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.getpublickeycertificate.
   humanURL: https://aws.amazon.com/payment-cryptography/
   baseURL: https://controlplane.payment-cryptography.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate'
   properties:
   - type: OpenAPI
@@ -332,7 +341,8 @@ apis:
     — 1 operation(s) for #x amz target=paymentcryptographycontrolplane.listtagsforresource.
   humanURL: https://aws.amazon.com/payment-cryptography/
   baseURL: https://controlplane.payment-cryptography.amazonaws.com
-  tags:
+  tags: []
+  tags_raw:
   - '#X Amz Target=PaymentCryptographyControlPlane.ListTagsForResource'
   properties:
   - type: OpenAPI
