@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.RestoreKey API'
+  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.RestoreKey #X Amz Target=PaymentCryptographyControlPlane.RestoreKey #X Amz Target=PaymentCryptographyControlPlane.RestoreKey API'
   description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -209,19 +209,35 @@ paths:
       - '#X Amz Target=PaymentCryptographyControlPlane.RestoreKey'
 components:
   schemas:
+    ConflictException: {}
+    Timestamp:
+      type: string
+      format: date-time
     KeyCheckValue:
       type: string
       pattern: ^[0-9a-fA-F]+$
       minLength: 4
       maxLength: 16
-    KeyState:
+    RestoreKeyOutput:
+      type: object
+      required:
+      - Key
+      properties:
+        Key:
+          allOf:
+          - $ref: '#/components/schemas/Key'
+          - description: 'The key material of the restored key. The <code>KeyState</code> will change to <code>CREATE_COMPLETE</code> and value for <code>DeletePendingTimestamp</code> gets removed. '
+    KeyOrigin:
       type: string
       enum:
-      - CREATE_IN_PROGRESS
-      - CREATE_COMPLETE
-      - DELETE_PENDING
-      - DELETE_COMPLETE
-      description: Defines the state of a key
+      - EXTERNAL
+      - AWS_PAYMENT_CRYPTOGRAPHY
+      description: Defines the source of a key
+    KeyArnOrKeyAliasType:
+      type: string
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:(key/[0-9a-zA-Z]{16,64}|alias/[a-zA-Z0-9/_-]+)$|^alias/[a-zA-Z0-9/_-]+$
+      minLength: 7
+      maxLength: 322
     KeyAlgorithm:
       type: string
       enum:
@@ -233,22 +249,6 @@ components:
       - RSA_2048
       - RSA_3072
       - RSA_4096
-    KeyArnOrKeyAliasType:
-      type: string
-      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:(key/[0-9a-zA-Z]{16,64}|alias/[a-zA-Z0-9/_-]+)$|^alias/[a-zA-Z0-9/_-]+$
-      minLength: 7
-      maxLength: 322
-    InternalServerException: {}
-    ThrottlingException: {}
-    ServiceUnavailableException: {}
-    Boolean:
-      type: boolean
-    KeyArn:
-      type: string
-      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
-      minLength: 70
-      maxLength: 150
-    ConflictException: {}
     KeyAttributes:
       type: object
       required:
@@ -274,12 +274,51 @@ components:
           - $ref: '#/components/schemas/KeyUsage'
           - description: The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
       description: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
-    ServiceQuotaExceededException: {}
-    KeyCheckValueAlgorithm:
+    KeyArn:
+      type: string
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
+      minLength: 70
+      maxLength: 150
+    ResourceNotFoundException: {}
+    KeyUsage:
       type: string
       enum:
-      - CMAC
-      - ANSI_X9_24
+      - TR31_B0_BASE_DERIVATION_KEY
+      - TR31_C0_CARD_VERIFICATION_KEY
+      - TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY
+      - TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION
+      - TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS
+      - TR31_E1_EMV_MKEY_CONFIDENTIALITY
+      - TR31_E2_EMV_MKEY_INTEGRITY
+      - TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS
+      - TR31_E5_EMV_MKEY_CARD_PERSONALIZATION
+      - TR31_E6_EMV_MKEY_OTHER
+      - TR31_K0_KEY_ENCRYPTION_KEY
+      - TR31_K1_KEY_BLOCK_PROTECTION_KEY
+      - TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT
+      - TR31_M3_ISO_9797_3_MAC_KEY
+      - TR31_M6_ISO_9797_5_CMAC_KEY
+      - TR31_M7_HMAC_KEY
+      - TR31_P0_PIN_ENCRYPTION_KEY
+      - TR31_P1_PIN_GENERATION_KEY
+      - TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE
+      - TR31_V1_IBM3624_PIN_VERIFICATION_KEY
+      - TR31_V2_VISA_PIN_VERIFICATION_KEY
+      - TR31_K2_TR34_ASYMMETRIC_KEY
+    Boolean:
+      type: boolean
+    ThrottlingException: {}
+    PrimitiveBoolean:
+      type: boolean
+    KeyState:
+      type: string
+      enum:
+      - CREATE_IN_PROGRESS
+      - CREATE_COMPLETE
+      - DELETE_PENDING
+      - DELETE_COMPLETE
+      description: Defines the state of a key
+    ServiceQuotaExceededException: {}
     KeyClass:
       type: string
       enum:
@@ -287,6 +326,7 @@ components:
       - ASYMMETRIC_KEY_PAIR
       - PRIVATE_KEY
       - PUBLIC_KEY
+    ValidationException: {}
     Key:
       type: object
       required:
@@ -353,15 +393,12 @@ components:
           - $ref: '#/components/schemas/Timestamp'
           - description: The date and time after which Amazon Web Services Payment Cryptography will stop using the key material for cryptographic operations.
       description: Metadata about an Amazon Web Services Payment Cryptography key.
-    RestoreKeyOutput:
-      type: object
-      required:
-      - Key
-      properties:
-        Key:
-          allOf:
-          - $ref: '#/components/schemas/Key'
-          - description: 'The key material of the restored key. The <code>KeyState</code> will change to <code>CREATE_COMPLETE</code> and value for <code>DeletePendingTimestamp</code> gets removed. '
+    InternalServerException: {}
+    KeyCheckValueAlgorithm:
+      type: string
+      enum:
+      - CMAC
+      - ANSI_X9_24
     RestoreKeyInput:
       type: object
       required:
@@ -372,38 +409,6 @@ components:
           allOf:
           - $ref: '#/components/schemas/KeyArnOrKeyAliasType'
           - description: The <code>KeyARN</code> of the key to be restored within Amazon Web Services Payment Cryptography.
-    KeyOrigin:
-      type: string
-      enum:
-      - EXTERNAL
-      - AWS_PAYMENT_CRYPTOGRAPHY
-      description: Defines the source of a key
-    ResourceNotFoundException: {}
-    KeyUsage:
-      type: string
-      enum:
-      - TR31_B0_BASE_DERIVATION_KEY
-      - TR31_C0_CARD_VERIFICATION_KEY
-      - TR31_D0_SYMMETRIC_DATA_ENCRYPTION_KEY
-      - TR31_D1_ASYMMETRIC_KEY_FOR_DATA_ENCRYPTION
-      - TR31_E0_EMV_MKEY_APP_CRYPTOGRAMS
-      - TR31_E1_EMV_MKEY_CONFIDENTIALITY
-      - TR31_E2_EMV_MKEY_INTEGRITY
-      - TR31_E4_EMV_MKEY_DYNAMIC_NUMBERS
-      - TR31_E5_EMV_MKEY_CARD_PERSONALIZATION
-      - TR31_E6_EMV_MKEY_OTHER
-      - TR31_K0_KEY_ENCRYPTION_KEY
-      - TR31_K1_KEY_BLOCK_PROTECTION_KEY
-      - TR31_K3_ASYMMETRIC_KEY_FOR_KEY_AGREEMENT
-      - TR31_M3_ISO_9797_3_MAC_KEY
-      - TR31_M6_ISO_9797_5_CMAC_KEY
-      - TR31_M7_HMAC_KEY
-      - TR31_P0_PIN_ENCRYPTION_KEY
-      - TR31_P1_PIN_GENERATION_KEY
-      - TR31_S0_ASYMMETRIC_KEY_FOR_DIGITAL_SIGNATURE
-      - TR31_V1_IBM3624_PIN_VERIFICATION_KEY
-      - TR31_V2_VISA_PIN_VERIFICATION_KEY
-      - TR31_K2_TR34_ASYMMETRIC_KEY
     AccessDeniedException: {}
     KeyModesOfUse:
       type: object
@@ -445,13 +450,20 @@ components:
           - $ref: '#/components/schemas/PrimitiveBoolean'
           - description: Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to wrap other keys.
       description: The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
-    Timestamp:
-      type: string
-      format: date-time
-    ValidationException: {}
-    PrimitiveBoolean:
-      type: boolean
+    ServiceUnavailableException: {}
   parameters:
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
+      in: header
+      schema:
+        type: string
+      required: false
     X-Amz-Algorithm:
       name: X-Amz-Algorithm
       in: header
@@ -464,24 +476,6 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Security-Token:
-      name: X-Amz-Security-Token
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Date:
       name: X-Amz-Date
       in: header
@@ -490,6 +484,12 @@ components:
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Security-Token:
+      name: X-Amz-Security-Token
       in: header
       schema:
         type: string

@@ -1,8 +1,8 @@
-openapi: 3.0.0
+openapi: 3.2.0
 info:
-  version: "1.0.0"
+  version: 1.0.0
   x-release: v4
-  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate API'
+  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate #X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate #X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate API'
   description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
@@ -197,15 +197,51 @@ paths:
       tags:
       - '#X Amz Target=PaymentCryptographyControlPlane.GetPublicKeyCertificate'
 components:
+  schemas:
+    ValidationException: {}
+    GetPublicKeyCertificateInput:
+      type: object
+      required:
+      - KeyIdentifier
+      title: GetPublicKeyCertificateInput
+      properties:
+        KeyIdentifier:
+          allOf:
+          - $ref: '#/components/schemas/KeyArnOrKeyAliasType'
+          - description: The <code>KeyARN</code> of the asymmetric key pair.
+    InternalServerException: {}
+    ResourceNotFoundException: {}
+    GetPublicKeyCertificateOutput:
+      type: object
+      required:
+      - KeyCertificate
+      - KeyCertificateChain
+      properties:
+        KeyCertificate:
+          allOf:
+          - $ref: '#/components/schemas/CertificateType'
+          - description: The public key component of the asymmetric key pair in a certificate (PEM) format. It is signed by the root certificate authority (CA) within your service account. The certificate expires in 90 days.
+        KeyCertificateChain:
+          allOf:
+          - $ref: '#/components/schemas/CertificateType'
+          - description: The certificate chain that signed the public key certificate of the asymmetric key pair. This is the root certificate authority (CA) within your service account.
+    ThrottlingException: {}
+    CertificateType:
+      type: string
+      pattern: ^[^\[;\]<>]+$
+      minLength: 1
+      maxLength: 32768
+      format: password
+    AccessDeniedException: {}
+    ServiceUnavailableException: {}
+    KeyArnOrKeyAliasType:
+      type: string
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:(key/[0-9a-zA-Z]{16,64}|alias/[a-zA-Z0-9/_-]+)$|^alias/[a-zA-Z0-9/_-]+$
+      minLength: 7
+      maxLength: 322
   parameters:
-    X-Amz-Credential:
-      name: X-Amz-Credential
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
@@ -234,54 +270,18 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
       in: header
       schema:
         type: string
       required: false
-  schemas:
-    KeyArnOrKeyAliasType:
-      type: string
-      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:(key/[0-9a-zA-Z]{16,64}|alias/[a-zA-Z0-9/_-]+)$|^alias/[a-zA-Z0-9/_-]+$
-      minLength: 7
-      maxLength: 322
-    InternalServerException: {}
-    ValidationException: {}
-    ThrottlingException: {}
-    GetPublicKeyCertificateOutput:
-      type: object
-      required:
-      - KeyCertificate
-      - KeyCertificateChain
-      properties:
-        KeyCertificate:
-          allOf:
-          - $ref: '#/components/schemas/CertificateType'
-          - description: The public key component of the asymmetric key pair in a certificate (PEM) format. It is signed by the root certificate authority (CA) within your service account. The certificate expires in 90 days.
-        KeyCertificateChain:
-          allOf:
-          - $ref: '#/components/schemas/CertificateType'
-          - description: The certificate chain that signed the public key certificate of the asymmetric key pair. This is the root certificate authority (CA) within your service account.
-    ServiceUnavailableException: {}
-    ResourceNotFoundException: {}
-    CertificateType:
-      type: string
-      pattern: ^[^\[;\]<>]+$
-      minLength: 1
-      maxLength: 32768
-      format: password
-    AccessDeniedException: {}
-    GetPublicKeyCertificateInput:
-      type: object
-      required:
-      - KeyIdentifier
-      title: GetPublicKeyCertificateInput
-      properties:
-        KeyIdentifier:
-          allOf:
-          - $ref: '#/components/schemas/KeyArnOrKeyAliasType'
-          - description: The <code>KeyARN</code> of the asymmetric key pair.
+    X-Amz-Credential:
+      name: X-Amz-Credential
+      in: header
+      schema:
+        type: string
+      required: false
   securitySchemes:
     hmac:
       type: apiKey
