@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-09-14'
   x-release: v4
-  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport #X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport #X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport API'
-  description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
+  title: 'Payment Cryptography Control Plane #X Amz…'
+  description: You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/payment-cryptography-2021-09-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,22 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetParametersForExport
-      description: <p>Gets the export token and the signing key certificate to initiate a TR-34 key export from Amazon Web Services Payment Cryptography.</p> <p>The signing key certificate signs the wrapped key under export within the TR-34 key payload. The export token and signing key certificate must be in place and operational before calling <a>ExportKey</a>. The export token expires in 7 days. You can use the same export token to export multiple keys from your service account.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>ExportKey</a> </p> </li> <li> <p> <a>GetParametersForImport</a> </p> </li> </ul>
+      description: 'Gets the export token and the signing key certificate to initiate a TR-34 key export from Amazon Web Services Payment Cryptography.
+
+
+        The signing key certificate signs the wrapped key under export within the TR-34 key payload. The export token and signing key certificate must be in place and operational before calling ExportKey. The export token expires in 7 days. You can use the same export token to export multiple keys from your service account.
+
+
+        Cross-account use: This operation can''t be used across different Amazon Web Services accounts.
+
+
+        Related operations:
+
+
+        ExportKey
+
+
+        GetParametersForImport'
       responses:
         '200':
           description: Success
@@ -213,13 +229,45 @@ paths:
       - '#X Amz Target=PaymentCryptographyControlPlane.GetParametersForExport'
 components:
   schemas:
+    ResourceNotFoundException: {}
+    ServiceQuotaExceededException: {}
+    KeyMaterialType:
+      type: string
+      enum:
+      - TR34_KEY_BLOCK
+      - TR31_KEY_BLOCK
+      - ROOT_PUBLIC_KEY_CERTIFICATE
+      - TRUSTED_PUBLIC_KEY_CERTIFICATE
     ConflictException: {}
-    ExportTokenId:
+    ThrottlingException: {}
+    GetParametersForExportInput:
+      type: object
+      required:
+      - KeyMaterialType
+      - SigningKeyAlgorithm
+      title: GetParametersForExportInput
+      properties:
+        KeyMaterialType:
+          allOf:
+          - $ref: '#/components/schemas/KeyMaterialType'
+          - description: The key block format type (for example, TR-34 or TR-31) to use during key material export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>. Export token is not required for TR-31 key export.
+        SigningKeyAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/KeyAlgorithm'
+          - description: The signing key algorithm to generate a signing key certificate. This certificate signs the wrapped key under export within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only signing key algorithm allowed.
+    ServiceUnavailableException: {}
+    InternalServerException: {}
+    KeyAlgorithm:
       type: string
-      pattern: ^export-token-[0-9a-zA-Z]{16,64}$
-    Timestamp:
-      type: string
-      format: date-time
+      enum:
+      - TDES_2KEY
+      - TDES_3KEY
+      - AES_128
+      - AES_192
+      - AES_256
+      - RSA_2048
+      - RSA_3072
+      - RSA_4096
     GetParametersForExportOutput:
       type: object
       required:
@@ -249,61 +297,35 @@ components:
           allOf:
           - $ref: '#/components/schemas/CertificateType'
           - description: The certificate chain that signed the signing key certificate. This is the root certificate authority (CA) within your service account.
-    KeyMaterialType:
-      type: string
-      enum:
-      - TR34_KEY_BLOCK
-      - TR31_KEY_BLOCK
-      - ROOT_PUBLIC_KEY_CERTIFICATE
-      - TRUSTED_PUBLIC_KEY_CERTIFICATE
-    KeyAlgorithm:
-      type: string
-      enum:
-      - TDES_2KEY
-      - TDES_3KEY
-      - AES_128
-      - AES_192
-      - AES_256
-      - RSA_2048
-      - RSA_3072
-      - RSA_4096
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
+    ValidationException: {}
     CertificateType:
       type: string
       pattern: ^[^\[;\]<>]+$
       minLength: 1
       maxLength: 32768
       format: password
-    ServiceQuotaExceededException: {}
-    ValidationException: {}
-    InternalServerException: {}
     AccessDeniedException: {}
-    ServiceUnavailableException: {}
-    GetParametersForExportInput:
-      type: object
-      required:
-      - KeyMaterialType
-      - SigningKeyAlgorithm
-      title: GetParametersForExportInput
-      properties:
-        KeyMaterialType:
-          allOf:
-          - $ref: '#/components/schemas/KeyMaterialType'
-          - description: The key block format type (for example, TR-34 or TR-31) to use during key material export. Export token is only required for a TR-34 key export, <code>TR34_KEY_BLOCK</code>. Export token is not required for TR-31 key export.
-        SigningKeyAlgorithm:
-          allOf:
-          - $ref: '#/components/schemas/KeyAlgorithm'
-          - description: The signing key algorithm to generate a signing key certificate. This certificate signs the wrapped key under export within the TR-34 key block cryptogram. <code>RSA_2048</code> is the only signing key algorithm allowed.
+    ExportTokenId:
+      type: string
+      pattern: ^export-token-[0-9a-zA-Z]{16,64}$
+    Timestamp:
+      type: string
+      format: date-time
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -320,20 +342,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

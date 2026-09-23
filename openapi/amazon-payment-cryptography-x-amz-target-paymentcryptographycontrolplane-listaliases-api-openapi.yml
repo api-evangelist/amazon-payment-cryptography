@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-09-14'
   x-release: v4
-  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.ListAliases #X Amz Target=PaymentCryptographyControlPlane.ListAliases #X Amz Target=PaymentCryptographyControlPlane.ListAliases API'
-  description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
+  title: 'Payment Cryptography Control Plane #X Amz…'
+  description: You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/payment-cryptography-2021-09-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,28 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListAliases
-      description: <p>Lists the aliases for all keys in the caller's Amazon Web Services account and Amazon Web Services Region. You can filter the list of aliases. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/keys-managealias.html">Using aliases</a> in the <i>Amazon Web Services Payment Cryptography User Guide</i>.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the aliases. When the response contains only a subset of aliases, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListAliases</code> request to get more aliases. When you receive a response with no NextToken (or an empty or null value), that means there are no more aliases to get.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>CreateAlias</a> </p> </li> <li> <p> <a>DeleteAlias</a> </p> </li> <li> <p> <a>GetAlias</a> </p> </li> <li> <p> <a>UpdateAlias</a> </p> </li> </ul>
+      description: 'Lists the aliases for all keys in the caller''s Amazon Web Services account and Amazon Web Services Region. You can filter the list of aliases. For more information, see Using aliases in the Amazon Web Services Payment Cryptography User Guide.
+
+
+        This is a paginated operation, which means that each response might contain only a subset of all the aliases. When the response contains only a subset of aliases, it includes a NextToken value. Use this value in a subsequent ListAliases request to get more aliases. When you receive a response with no NextToken (or an empty or null value), that means there are no more aliases to get.
+
+
+        Cross-account use: This operation can''t be used across different Amazon Web Services accounts.
+
+
+        Related operations:
+
+
+        CreateAlias
+
+
+        DeleteAlias
+
+
+        GetAlias
+
+
+        UpdateAlias'
       responses:
         '200':
           description: Success
@@ -210,10 +232,6 @@ paths:
       - '#X Amz Target=PaymentCryptographyControlPlane.ListAliases'
 components:
   schemas:
-    NextToken:
-      type: string
-      minLength: 1
-      maxLength: 8192
     ListAliasesInput:
       type: object
       title: ListAliasesInput
@@ -226,13 +244,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.
+    ResourceNotFoundException: {}
     KeyArn:
       type: string
       pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
       minLength: 70
       maxLength: 150
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
     Alias:
       type: object
       required:
@@ -247,16 +264,27 @@ components:
           - $ref: '#/components/schemas/KeyArn'
           - description: The <code>KeyARN</code> of the key associated with the alias.
       description: Contains information about an alias.
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 8192
+    MaxResults:
+      type: integer
+      minimum: 1
+      maximum: 100
+    ThrottlingException: {}
     Aliases:
       type: array
       items:
         $ref: '#/components/schemas/Alias'
+    ServiceUnavailableException: {}
+    InternalServerException: {}
+    ValidationException: {}
     AliasName:
       type: string
       pattern: ^alias/[a-zA-Z0-9/_-]+$
       minLength: 7
       maxLength: 256
-    ValidationException: {}
     ListAliasesOutput:
       type: object
       required:
@@ -270,22 +298,22 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: The token for the next set of results, or an empty or null value if there are no more results.
-    InternalServerException: {}
-    MaxResults:
-      type: integer
-      minimum: 1
-      maximum: 100
     AccessDeniedException: {}
-    ServiceUnavailableException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -302,20 +330,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

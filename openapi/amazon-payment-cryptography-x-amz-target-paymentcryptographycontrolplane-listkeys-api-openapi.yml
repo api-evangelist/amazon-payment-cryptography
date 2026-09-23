@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-09-14'
   x-release: v4
-  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.ListKeys #X Amz Target=PaymentCryptographyControlPlane.ListKeys #X Amz Target=PaymentCryptographyControlPlane.ListKeys API'
-  description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
+  title: 'Payment Cryptography Control Plane #X Amz…'
+  description: You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/payment-cryptography-2021-09-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,25 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: ListKeys
-      description: <p>Lists the keys in the caller's Amazon Web Services account and Amazon Web Services Region. You can filter the list of keys.</p> <p>This is a paginated operation, which means that each response might contain only a subset of all the keys. When the response contains only a subset of keys, it includes a <code>NextToken</code> value. Use this value in a subsequent <code>ListKeys</code> request to get more keys. When you receive a response with no NextToken (or an empty or null value), that means there are no more keys to get.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>CreateKey</a> </p> </li> <li> <p> <a>DeleteKey</a> </p> </li> <li> <p> <a>GetKey</a> </p> </li> </ul>
+      description: 'Lists the keys in the caller''s Amazon Web Services account and Amazon Web Services Region. You can filter the list of keys.
+
+
+        This is a paginated operation, which means that each response might contain only a subset of all the keys. When the response contains only a subset of keys, it includes a NextToken value. Use this value in a subsequent ListKeys request to get more keys. When you receive a response with no NextToken (or an empty or null value), that means there are no more keys to get.
+
+
+        Cross-account use: This operation can''t be used across different Amazon Web Services accounts.
+
+
+        Related operations:
+
+
+        CreateKey
+
+
+        DeleteKey
+
+
+        GetKey'
       responses:
         '200':
           description: Success
@@ -210,15 +229,30 @@ paths:
       - '#X Amz Target=PaymentCryptographyControlPlane.ListKeys'
 components:
   schemas:
-    NextToken:
+    Boolean:
+      type: boolean
+    ResourceNotFoundException: {}
+    ListKeysInput:
+      type: object
+      title: ListKeysInput
+      properties:
+        KeyState:
+          allOf:
+          - $ref: '#/components/schemas/KeyState'
+          - description: The key state of the keys you want to list.
+        MaxResults:
+          allOf:
+          - $ref: '#/components/schemas/MaxResults'
+          - description: Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.
+        NextToken:
+          allOf:
+          - $ref: '#/components/schemas/NextToken'
+          - description: Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.
+    KeyArn:
       type: string
-      minLength: 1
-      maxLength: 8192
-    KeyCheckValue:
-      type: string
-      pattern: ^[0-9a-fA-F]+$
-      minLength: 4
-      maxLength: 16
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
+      minLength: 70
+      maxLength: 150
     ListKeysOutput:
       type: object
       required:
@@ -232,6 +266,66 @@ components:
           allOf:
           - $ref: '#/components/schemas/NextToken'
           - description: The token for the next set of results, or an empty or null value if there are no more results.
+    KeyAttributes:
+      type: object
+      required:
+      - KeyAlgorithm
+      - KeyClass
+      - KeyModesOfUse
+      - KeyUsage
+      properties:
+        KeyAlgorithm:
+          allOf:
+          - $ref: '#/components/schemas/KeyAlgorithm'
+          - description: <p>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography key.</p> <p>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code> and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</p>
+        KeyClass:
+          allOf:
+          - $ref: '#/components/schemas/KeyClass'
+          - description: The type of Amazon Web Services Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether Amazon Web Services Payment Cryptography key contains a symmetric key or an asymmetric key pair.
+        KeyModesOfUse:
+          allOf:
+          - $ref: '#/components/schemas/KeyModesOfUse'
+          - description: The list of cryptographic operations that you can perform using the key.
+        KeyUsage:
+          allOf:
+          - $ref: '#/components/schemas/KeyUsage'
+          - description: The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
+      description: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
+    NextToken:
+      type: string
+      minLength: 1
+      maxLength: 8192
+    KeyState:
+      type: string
+      enum:
+      - CREATE_IN_PROGRESS
+      - CREATE_COMPLETE
+      - DELETE_PENDING
+      - DELETE_COMPLETE
+      description: Defines the state of a key
+    KeySummaryList:
+      type: array
+      items:
+        $ref: '#/components/schemas/KeySummary'
+    MaxResults:
+      type: integer
+      minimum: 1
+      maximum: 100
+    ThrottlingException: {}
+    KeyCheckValue:
+      type: string
+      pattern: ^[0-9a-fA-F]+$
+      minLength: 4
+      maxLength: 16
+    PrimitiveBoolean:
+      type: boolean
+    KeyClass:
+      type: string
+      enum:
+      - SYMMETRIC_KEY
+      - ASYMMETRIC_KEY_PAIR
+      - PRIVATE_KEY
+      - PUBLIC_KEY
     KeySummary:
       type: object
       required:
@@ -267,48 +361,6 @@ components:
           - $ref: '#/components/schemas/KeyState'
           - description: The state of an Amazon Web Services Payment Cryptography that is being created or deleted.
       description: Metadata about an Amazon Web Services Payment Cryptography key.
-    KeyAlgorithm:
-      type: string
-      enum:
-      - TDES_2KEY
-      - TDES_3KEY
-      - AES_128
-      - AES_192
-      - AES_256
-      - RSA_2048
-      - RSA_3072
-      - RSA_4096
-    KeyAttributes:
-      type: object
-      required:
-      - KeyAlgorithm
-      - KeyClass
-      - KeyModesOfUse
-      - KeyUsage
-      properties:
-        KeyAlgorithm:
-          allOf:
-          - $ref: '#/components/schemas/KeyAlgorithm'
-          - description: <p>The key algorithm to be use during creation of an Amazon Web Services Payment Cryptography key.</p> <p>For symmetric keys, Amazon Web Services Payment Cryptography supports <code>AES</code> and <code>TDES</code> algorithms. For asymmetric keys, Amazon Web Services Payment Cryptography supports <code>RSA</code> and <code>ECC_NIST</code> algorithms.</p>
-        KeyClass:
-          allOf:
-          - $ref: '#/components/schemas/KeyClass'
-          - description: The type of Amazon Web Services Payment Cryptography key to create, which determines the classiﬁcation of the cryptographic method and whether Amazon Web Services Payment Cryptography key contains a symmetric key or an asymmetric key pair.
-        KeyModesOfUse:
-          allOf:
-          - $ref: '#/components/schemas/KeyModesOfUse'
-          - description: The list of cryptographic operations that you can perform using the key.
-        KeyUsage:
-          allOf:
-          - $ref: '#/components/schemas/KeyUsage'
-          - description: The cryptographic usage of an Amazon Web Services Payment Cryptography key as deﬁned in section A.5.2 of the TR-31 spec.
-      description: The role of the key, the algorithm it supports, and the cryptographic operations allowed with the key. This data is immutable after the key is created.
-    KeyArn:
-      type: string
-      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
-      minLength: 70
-      maxLength: 150
-    ResourceNotFoundException: {}
     KeyUsage:
       type: string
       enum:
@@ -334,53 +386,20 @@ components:
       - TR31_V1_IBM3624_PIN_VERIFICATION_KEY
       - TR31_V2_VISA_PIN_VERIFICATION_KEY
       - TR31_K2_TR34_ASYMMETRIC_KEY
-    Boolean:
-      type: boolean
-    KeySummaryList:
-      type: array
-      items:
-        $ref: '#/components/schemas/KeySummary'
-    ThrottlingException: {}
-    PrimitiveBoolean:
-      type: boolean
-    KeyState:
+    ServiceUnavailableException: {}
+    KeyAlgorithm:
       type: string
       enum:
-      - CREATE_IN_PROGRESS
-      - CREATE_COMPLETE
-      - DELETE_PENDING
-      - DELETE_COMPLETE
-      description: Defines the state of a key
-    KeyClass:
-      type: string
-      enum:
-      - SYMMETRIC_KEY
-      - ASYMMETRIC_KEY_PAIR
-      - PRIVATE_KEY
-      - PUBLIC_KEY
-    ValidationException: {}
+      - TDES_2KEY
+      - TDES_3KEY
+      - AES_128
+      - AES_192
+      - AES_256
+      - RSA_2048
+      - RSA_3072
+      - RSA_4096
     InternalServerException: {}
-    ListKeysInput:
-      type: object
-      title: ListKeysInput
-      properties:
-        KeyState:
-          allOf:
-          - $ref: '#/components/schemas/KeyState'
-          - description: The key state of the keys you want to list.
-        MaxResults:
-          allOf:
-          - $ref: '#/components/schemas/MaxResults'
-          - description: Use this parameter to specify the maximum number of items to return. When this value is present, Amazon Web Services Payment Cryptography does not return more than the specified number of items, but it might return fewer.
-        NextToken:
-          allOf:
-          - $ref: '#/components/schemas/NextToken'
-          - description: Use this parameter in a subsequent request after you receive a response with truncated results. Set it to the value of <code>NextToken</code> from the truncated response you just received.
-    MaxResults:
-      type: integer
-      minimum: 1
-      maximum: 100
-    AccessDeniedException: {}
+    ValidationException: {}
     KeyModesOfUse:
       type: object
       properties:
@@ -421,16 +440,22 @@ components:
           - $ref: '#/components/schemas/PrimitiveBoolean'
           - description: Speciﬁes whether an Amazon Web Services Payment Cryptography key can be used to wrap other keys.
       description: The list of cryptographic operations that you can perform using the key. The modes of use are deﬁned in section A.5.3 of the TR-31 spec.
-    ServiceUnavailableException: {}
+    AccessDeniedException: {}
   parameters:
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
+    X-Amz-SignedHeaders:
+      name: X-Amz-SignedHeaders
       in: header
       schema:
         type: string
       required: false
-    X-Amz-SignedHeaders:
-      name: X-Amz-SignedHeaders
+    X-Amz-Signature:
+      name: X-Amz-Signature
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -447,20 +472,14 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Date:
-      name: X-Amz-Date
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Signature:
-      name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
     X-Amz-Security-Token:
       name: X-Amz-Security-Token
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string

@@ -1,9 +1,9 @@
 openapi: 3.2.0
 info:
-  version: 1.0.0
+  version: '2021-09-14'
   x-release: v4
-  title: 'Payment Cryptography Control Plane #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.CreateAlias #X Amz Target=PaymentCryptographyControlPlane.GetAlias #X Amz Target=PaymentCryptographyControlPlane.GetAlias #X Amz Target=PaymentCryptographyControlPlane.GetAlias API'
-  description: <p>You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations. You can create, import, export, share, manage, and delete keys. You can also manage Identity and Access Management (IAM) policies for keys. For more information, see <a href="https://docs.aws.amazon.com/payment-cryptography/latest/userguide/security-iam.html">Identity and access management</a> in the <i>Amazon Web Services Payment Cryptography User Guide.</i> </p> <p>To use encryption keys for payment-related transaction processing and associated cryptographic operations, you use the <a href="https://docs.aws.amazon.com/payment-cryptography/latest/DataAPIReference/Welcome.html">Amazon Web Services Payment Cryptography Data Plane</a>. You can encrypt, decrypt, generate, verify, and translate payment-related cryptographic operations. </p> <p>All Amazon Web Services Payment Cryptography API calls must be signed and transmitted using Transport Layer Security (TLS). We recommend you always use the latest supported TLS version for logging API requests. </p> <p>Amazon Web Services Payment Cryptography supports CloudTrail, a service that logs Amazon Web Services API calls and related events for your Amazon Web Services account and delivers them to an Amazon S3 bucket that you specify. By using the information collected by CloudTrail, you can determine what requests were made to Amazon Web Services Payment Cryptography, who made the request, when it was made, and so on. If you don't conﬁgure a trail, you can still view the most recent events in the CloudTrail console. For more information, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/">CloudTrail User Guide</a>.</p>
+  title: 'Payment Cryptography Control Plane #X Amz…'
+  description: You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption keys you use for payment-related cryptographic operations.
   x-logo:
     url: https://twitter.com/awscloud/profile_image?size=original
     backgroundColor: '#FFFFFF'
@@ -24,6 +24,7 @@ info:
     url: https://raw.githubusercontent.com/aws/aws-sdk-js/master/apis/payment-cryptography-2021-09-14.normal.json
     converter:
       url: https://github.com/mermade/aws2openapi
+      version: 1.0.0
     x-apisguru-driver: external
   x-apiClientRegistration:
     url: https://portal.aws.amazon.com/gp/aws/developer/registration/index.html?nc2=h_ct
@@ -125,7 +126,25 @@ paths:
     - $ref: '#/components/parameters/X-Amz-SignedHeaders'
     post:
       operationId: GetAlias
-      description: <p>Gets the Amazon Web Services Payment Cryptography key associated with the alias.</p> <p> <b>Cross-account use:</b> This operation can't be used across different Amazon Web Services accounts.</p> <p> <b>Related operations:</b> </p> <ul> <li> <p> <a>CreateAlias</a> </p> </li> <li> <p> <a>DeleteAlias</a> </p> </li> <li> <p> <a>ListAliases</a> </p> </li> <li> <p> <a>UpdateAlias</a> </p> </li> </ul>
+      description: 'Gets the Amazon Web Services Payment Cryptography key associated with the alias.
+
+
+        Cross-account use: This operation can''t be used across different Amazon Web Services accounts.
+
+
+        Related operations:
+
+
+        CreateAlias
+
+
+        DeleteAlias
+
+
+        ListAliases
+
+
+        UpdateAlias'
       responses:
         '200':
           description: Success
@@ -196,71 +215,21 @@ paths:
       tags:
       - '#X Amz Target=PaymentCryptographyControlPlane.GetAlias'
 components:
-  schemas:
-    ValidationException: {}
-    KeyArn:
-      type: string
-      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
-      minLength: 70
-      maxLength: 150
-    InternalServerException: {}
-    GetAliasInput:
-      type: object
-      required:
-      - AliasName
-      title: GetAliasInput
-      properties:
-        AliasName:
-          allOf:
-          - $ref: '#/components/schemas/AliasName'
-          - description: The alias of the Amazon Web Services Payment Cryptography key.
-    ResourceNotFoundException: {}
-    ThrottlingException: {}
-    Alias:
-      type: object
-      required:
-      - AliasName
-      properties:
-        AliasName:
-          allOf:
-          - $ref: '#/components/schemas/AliasName'
-          - description: <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
-        KeyArn:
-          allOf:
-          - $ref: '#/components/schemas/KeyArn'
-          - description: The <code>KeyARN</code> of the key associated with the alias.
-      description: Contains information about an alias.
-    AccessDeniedException: {}
-    GetAliasOutput:
-      type: object
-      required:
-      - Alias
-      properties:
-        Alias:
-          allOf:
-          - $ref: '#/components/schemas/Alias'
-          - description: The alias of the Amazon Web Services Payment Cryptography key.
-    ServiceUnavailableException: {}
-    AliasName:
-      type: string
-      pattern: ^alias/[a-zA-Z0-9/_-]+$
-      minLength: 7
-      maxLength: 256
   parameters:
-    X-Amz-Date:
-      name: X-Amz-Date
+    X-Amz-Algorithm:
+      name: X-Amz-Algorithm
+      in: header
+      schema:
+        type: string
+      required: false
+    X-Amz-Credential:
+      name: X-Amz-Credential
       in: header
       schema:
         type: string
       required: false
     X-Amz-Signature:
       name: X-Amz-Signature
-      in: header
-      schema:
-        type: string
-      required: false
-    X-Amz-Content-Sha256:
-      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
@@ -277,18 +246,68 @@ components:
       schema:
         type: string
       required: false
-    X-Amz-Algorithm:
-      name: X-Amz-Algorithm
+    X-Amz-Date:
+      name: X-Amz-Date
       in: header
       schema:
         type: string
       required: false
-    X-Amz-Credential:
-      name: X-Amz-Credential
+    X-Amz-Content-Sha256:
+      name: X-Amz-Content-Sha256
       in: header
       schema:
         type: string
       required: false
+  schemas:
+    AliasName:
+      type: string
+      pattern: ^alias/[a-zA-Z0-9/_-]+$
+      minLength: 7
+      maxLength: 256
+    GetAliasOutput:
+      type: object
+      required:
+      - Alias
+      properties:
+        Alias:
+          allOf:
+          - $ref: '#/components/schemas/Alias'
+          - description: The alias of the Amazon Web Services Payment Cryptography key.
+    Alias:
+      type: object
+      required:
+      - AliasName
+      properties:
+        AliasName:
+          allOf:
+          - $ref: '#/components/schemas/AliasName'
+          - description: <p>A friendly name that you can use to refer to a key. The value must begin with <code>alias/</code>.</p> <important> <p>Do not include confidential or sensitive information in this field. This field may be displayed in plaintext in CloudTrail logs and other output.</p> </important>
+        KeyArn:
+          allOf:
+          - $ref: '#/components/schemas/KeyArn'
+          - description: The <code>KeyARN</code> of the key associated with the alias.
+      description: Contains information about an alias.
+    ResourceNotFoundException: {}
+    AccessDeniedException: {}
+    ServiceUnavailableException: {}
+    InternalServerException: {}
+    ThrottlingException: {}
+    KeyArn:
+      type: string
+      pattern: ^arn:aws:payment-cryptography:[a-z]{2}-[a-z]{1,16}-[0-9]+:[0-9]{12}:key/[0-9a-zA-Z]{16,64}$
+      minLength: 70
+      maxLength: 150
+    GetAliasInput:
+      type: object
+      required:
+      - AliasName
+      title: GetAliasInput
+      properties:
+        AliasName:
+          allOf:
+          - $ref: '#/components/schemas/AliasName'
+          - description: The alias of the Amazon Web Services Payment Cryptography key.
+    ValidationException: {}
   securitySchemes:
     hmac:
       type: apiKey
