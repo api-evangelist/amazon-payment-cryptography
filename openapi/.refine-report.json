@@ -6,9 +6,7 @@
   "outputs": [
     "amazon-payment-cryptography-payment-cryptography-control-plane-api-openapi.yml"
   ],
-  "archived": [
-    "deleted 20 superseded output(s) from the previous generation"
-  ],
+  "archived": [],
   "errors": [],
   "warnings": [],
   "notes": [
@@ -35,29 +33,9 @@
     "amazon-payment-cryptography-openapi.yml: tagged paths POST /#X-Amz-Target=PaymentCryptographyControlPlane.UntagResource -> Payment Cryptography Control Plane",
     "amazon-payment-cryptography-openapi.yml: tagged paths POST /#X-Amz-Target=PaymentCryptographyControlPlane.UpdateAlias -> Payment Cryptography Control Plane",
     "amazon-payment-cryptography-openapi.yml: declared missing tag: Payment Cryptography Control Plane",
-    "superseded outputs removed: amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createalias-api-openapi.yml, amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createkey-api-openapi.yml, amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletealias-api-openapi.yml, amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletekey-api-openapi.yml, amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-exportkey-api-openapi.yml \u2026",
-    "apis.yml register: written (+1 apis, 1 total)"
+    "apis.yml register: already-registered"
   ],
   "skipped": [
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createalias-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createkey-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletealias-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-deletekey-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-exportkey-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getalias-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getkey-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getparametersforexport-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getparametersforimport-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-getpublickeycertificate-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-importkey-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listaliases-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listkeys-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-listtagsforresource-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-restorekey-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-startkeyusage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-stopkeyusage-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-tagresource-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-untagresource-api-openapi.yml: previously refined output, superseded by openapi/_original/",
-    "amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-updatealias-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+    "amazon-payment-cryptography-payment-cryptography-control-plane-api-openapi.yml: previously refined output, superseded by openapi/_original/"
   ]
 }
