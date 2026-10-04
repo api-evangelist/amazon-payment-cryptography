@@ -1,0 +1,26 @@
+slug: amazon-payment-cryptography
+provider: Amazon Payment Cryptography
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Payment Cryptography Control Plane
+  spec_file: amazon-payment-cryptography-payment-cryptography-control-plane-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.78
+  evidence: '"You use the Amazon Web Services Payment Cryptography Control Plane to manage the encryption
+    keys you use for payment-related cryptographic operations"; CreateKey, ImportKey, ExportKey, GetPublicKeyCertificate'
+  reason: Despite the 'Payment' homograph, the operations are cryptographic key lifecycle management (create/import/export/delete
+    keys, aliases) — a cybersecurity control capability, not payment processing. No single L2 cleanly
+    covers key management.

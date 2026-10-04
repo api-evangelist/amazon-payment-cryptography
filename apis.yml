@@ -72,6 +72,9 @@ apis:
   - type: FAQ
     url: https://aws.amazon.com/payment-cryptography/faqs/
 common:
+  - type: CapabilityMap
+    url: capabilities/amazon-payment-cryptography-capability-edges.yml
+    name: Amazon Payment Cryptography Business Capability Map
   - type: PostmanWorkspace
     url: https://www.postman.com/kinlaneapi/amazon-payment-cryptography/overview
   - type: AgenticAccess
