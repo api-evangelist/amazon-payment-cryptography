@@ -43,7 +43,7 @@ plans:
   included_quota: Key ceremonies performed by trained AWS Key Custodians in AWS-operated facilities; Compliance
     with payment industry standards (PCI PIN and PCI P2PE)
 x-canonical:
-  generated: '2026-11-02'
+  generated: '2026-11-06'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
