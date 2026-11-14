@@ -11,6 +11,15 @@ artifacts:
   capabilities/amazon-payment-cryptography-capability-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  certification/observations-2026-11-11.jsonl:
+    method: unknown
+    evidence: no authorship recorded
+  certification/status.yml:
+    method: unknown
+    evidence: no authorship recorded
+  changelog/amazon-payment-cryptography-changelog.yml:
+    method: searched
+    evidence: declared in the artifact
   collections/amazon-payment-cryptography-x-amz-target-paymentcryptographycontrolplane-createalias-api.opencollection.json:
     method: unknown
     evidence: no authorship recorded
@@ -137,6 +146,18 @@ artifacts:
   collections/amazon-payment-cryptography.postman_collection.json:
     method: derived
     evidence: openapi/amazon-payment-cryptography
+  conformance/amazon-payment-cryptography-conformance.yml:
+    method: derived
+    evidence: declared in the artifact
+  conventions/amazon-payment-cryptography-conventions.yml:
+    method: derived
+    evidence: declared in the artifact
+  data-model/amazon-payment-cryptography-data-model.yml:
+    method: derived
+    evidence: declared in the artifact
+  errors/amazon-payment-cryptography-problem-types.yml:
+    method: derived
+    evidence: declared in the artifact
   examples/openapi-access-denied-exception-example.json:
     method: unknown
     evidence: no authorship recorded
@@ -431,13 +452,109 @@ artifacts:
   front-door-ai/2026-09-17.yml:
     method: unknown
     evidence: no authorship recorded
+  hosts/amazon-payment-cryptography-hosts.yml:
+    method: derived
+    evidence: declared in the artifact
   integrations/_index.yml:
     method: generated
     evidence: carries an API Evangelist house phrase
   integrations/amazon-payment-cryptography-integration-edges.yml:
     method: unknown
     evidence: no authorship recorded
+  json-ld/amazon-payment-cryptography-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
   json-ld/amazon-payment-cryptography-openapi-context.jsonld:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-create-key-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-delete-resource-policy-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-delete-resource-policy-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-disable-default-key-replication-regions-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-disable-default-key-replication-regions-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-enable-default-key-replication-regions-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-enable-default-key-replication-regions-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-encrypt-data-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-generate-auth-request-cryptogram-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-generate-mac-emv-pin-change-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-generate-mac-emv-pin-change-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-generate-pin-data-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-generate-pin-data-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-default-key-replication-regions-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-default-key-replication-regions-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-parameters-for-export-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-parameters-for-export-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-parameters-for-import-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-parameters-for-import-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-resource-policy-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-get-resource-policy-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-import-key-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-put-resource-policy-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-put-resource-policy-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-re-encrypt-data-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-translate-pin-data-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-translate-pin-data-output-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-verify-auth-request-cryptogram-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-verify-pin-data-input-schema.json:
+    method: unknown
+    evidence: no authorship recorded
+  json-schema/amazon-payment-cryptography-verify-pin-data-output-schema.json:
     method: unknown
     evidence: no authorship recorded
   json-schema/openapi-access-denied-exception-schema.json:
@@ -1019,7 +1136,7 @@ artifacts:
   kin/checks-2026-10-23T222754.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  kin/checks-2026-11-02T082323.yml:
+  kin/checks-2026-11-06T143934.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
   kin/score-2026-09-23T000603.yml:
@@ -1088,10 +1205,21 @@ artifacts:
   kin/score-2026-11-02T082323.yml:
     method: generated
     evidence: Kin Score snapshot written by score.rb
-  openapi/_original/amazon-payment-cryptography-openapi.yml:
-    method: harvested
-    evidence: found in openapi/_original/; the fetch URL and bytes were not recorded, so byte-identity
-      to the provider's source is unverified
+  kin/score-2026-11-06T143934.yml:
+    method: generated
+    evidence: Kin Score snapshot written by score.rb
+  lifecycle/amazon-payment-cryptography-lifecycle.yml:
+    method: searched
+    evidence: declared in the artifact
+  llms/amazon-payment-cryptography-llms-provenance.yml:
+    method: unknown
+    evidence: no authorship recorded
+  llms/amazon-payment-cryptography-llms.txt:
+    method: unknown
+    evidence: no authorship recorded
+  mcp/amazon-payment-cryptography-mcp.yml:
+    method: derived
+    evidence: declared in the artifact
   openapi/amazon-payment-cryptography-default-key-replication-region-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
@@ -1101,9 +1229,18 @@ artifacts:
   openapi/amazon-payment-cryptography-payment-cryptography-control-plane-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  openapi/amazon-payment-cryptography-pindata-api-openapi.yml:
+    method: unknown
+    evidence: no authorship recorded
   openapi/amazon-payment-cryptography-resource-policy-api-openapi.yml:
     method: unknown
     evidence: no authorship recorded
+  packages/amazon-payment-cryptography-packages.yml:
+    method: searched
+    evidence: declared in the artifact
+  patterns/amazon-payment-cryptography-patterns.yml:
+    method: derived
+    evidence: declared in the artifact
   plans/amazon-payment-cryptography-plans-pricing.yml:
     method: searched
     evidence: declared in the artifact
@@ -1168,9 +1305,12 @@ artifacts:
     method: unknown
     evidence: no authorship recorded
   rate-limits/amazon-payment-cryptography-rate-limits.yml:
-    method: generated
+    method: searched
     evidence: declared in the artifact
   rules/amazon-payment-cryptography-jsonschema-spectral-rules.yml:
+    method: generated
+    evidence: declared in the artifact
+  rules/amazon-payment-cryptography-rules.yml:
     method: generated
     evidence: declared in the artifact
   rules/amazon-payment-cryptography-spectral-rules.yml:
@@ -1185,12 +1325,47 @@ artifacts:
   security/amazon-payment-cryptography-vulnerability-disclosure.yml:
     method: searched
     evidence: declared in the artifact
+  skills/_index.yml:
+    method: generated
+    evidence: declared in the artifact
+  skills/amazon-payment-cryptography-import-export-keys.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/amazon-payment-cryptography-manage-key-lifecycle.md:
+    method: generated
+    evidence: declared in the artifact
+  skills/amazon-payment-cryptography-pin-and-card-verification.md:
+    method: generated
+    evidence: declared in the artifact
   sla/amazon-payment-cryptography-sla.yml:
     method: generated
     evidence: declared in the artifact
   smithy/payment-cryptography-2021-09-14.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/payment-cryptography/service/2021-09-14/payment-cryptography-2021-09-14.json
+      (sha256 4aa023efb919, fetched 2026-11-11T21:13:34+00:00)
+  smithy/payment-cryptography-data-2022-02-03.json:
+    method: harvested
+    evidence: byte-identical to https://raw.githubusercontent.com/aws/api-models-aws/3cd98287b471c106254abd89279cc87308d38bfd/models/payment-cryptography-data/service/2022-02-03/payment-cryptography-data-2022-02-03.json
+      (sha256 cef44f396e86, fetched 2026-11-11T21:13:35+00:00)
+  terms/amazon-payment-cryptography-terms-of-service.yml:
+    method: harvested
+    evidence: declared in the artifact
+  vendors/amazon-payment-cryptography-vendors.yml:
     method: unknown
     evidence: no authorship recorded
   vocabulary/amazon-payment-cryptography-vocabulary.yaml:
+    method: unknown
+    evidence: no authorship recorded
+  vocabulary/amazon-payment-cryptography-vocabulary.yml:
+    method: derived
+    evidence: declared in the artifact
+  well-known/amazon-payment-cryptography-midway-auth-openid-configuration.json:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-payment-cryptography-security.txt:
+    method: unknown
+    evidence: no authorship recorded
+  well-known/amazon-payment-cryptography-well-known.yml:
     method: unknown
     evidence: no authorship recorded
